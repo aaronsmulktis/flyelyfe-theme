@@ -2,6 +2,20 @@
 body,
 html {
   background-color: $color-body;
+  @extend .poppins;
+}
+
+h1,h2 {
+	@extend .londrina;
+}
+
+.navbar ul li {
+	& a {color: $color-black}
+	margin-right: 1.5em;
+}
+
+footer {
+	padding: 20px
 }
 
 .page-width {

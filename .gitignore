@@ -12,6 +12,7 @@ dist
 upload
 deploy.log
 config.yml
+src/config/*
 
 # Compiled source #
 ###################

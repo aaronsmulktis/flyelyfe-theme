@@ -1,4 +1,9 @@
 /*================ Links & Buttons ================*/
+a {color: $color-primary;}
+a:visited {color: $color-primary;}
+a:hover {color: $color-secondary;}
+a:active {color: $color-secondary;}
+
 .btn {
   @include prefix('user-select', 'none', moz ms webkit spec);
   @include prefix(appearance, none, webkit moz spec);

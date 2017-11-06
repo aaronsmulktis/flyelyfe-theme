@@ -35,6 +35,10 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   <script>
+    $(document).ready(function () {
+      attachClickEvent();
+    });
+
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
     window.theme = {
@@ -67,7 +71,7 @@
 
   {% section 'header' %}
 
-  <main role="main" id="MainContent">
+  <main role="main" id="MainContent container-fluid">
     {{ content_for_layout }}
   </main>
 
