@@ -5,52 +5,60 @@
 {%- assign collection = collections[section.settings.collection] -%}
 
 {% for product in collection.products limit: 6 %}
-  <a href="{{ product.url | within: collection }}">
 
-    {% if product.featured_image != blank %}
-      {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
-    {% endif %}
+<div class="feat-collection container">
+  <div class="row">
+    <div class="feat-product col-lg-3 col-md-4 col-sm-6">
+      <a href="{{ product.url | within: collection }}">
 
-    <p>{{ product.title }}</p>
-  </a>
+        {% if product.featured_image != blank %}
+          {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+        {% endif %}
 
-  <p>
-    {% if product.compare_at_price > product.price %}
-
-      {% if product.price_varies %}
-        {%- assign sale_price = product.price | money -%}
-        {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-      {% else %}
-        {{ 'products.product.on_sale' | t }}
-        {{ product.price | money }}
-      {% endif %}
-
-    {% else %}
-
-      {% if product.price_varies %}
-        {%- assign price = product.price | money -%}
-        {{ 'products.product.from_text_html' | t: price: price }}
-      {% else %}
-        {{ product.price | money }}
-      {% endif %}
-
-    {% endif %}
-  </p>
-{% else %}
-
-  {% for i in (1..6) %}
-    <a href="#">
-      {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-      {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+        <p>{{ product.title }}</p>
+      </a>
 
       <p>
-        {{ 'homepage.onboarding.product_title' | t }}
-      </p>
-    </a>
+        {% if product.compare_at_price > product.price %}
 
-    <p>{{ 1999 | money }}</p>
-  {% endfor %}
-{% endfor %}
+          {% if product.price_varies %}
+            {%- assign sale_price = product.price | money -%}
+            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+          {% else %}
+            {{ 'products.product.on_sale' | t }}
+            {{ product.price | money }}
+          {% endif %}
+
+        {% else %}
+
+          {% if product.price_varies %}
+            {%- assign price = product.price | money -%}
+            {{ 'products.product.from_text_html' | t: price: price }}
+          {% else %}
+            {{ product.price | money }}
+          {% endif %}
+
+        {% endif %}
+      </p>
+    {% else %}
+
+      {% for i in (1..6) %}
+        <a href="#">
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+
+          <p>
+            {{ 'homepage.onboarding.product_title' | t }}
+          </p>
+        </a>
+
+        <p>{{ 1999 | money }}</p>
+      {% endfor %}
+    {% endfor %}
+
+    </div>
+  </div>
+</div>
 
 {% schema %}
   {

@@ -9,10 +9,24 @@ h1,h2 {
 	@extend .londrina;
 }
 
+.navbar-brand {
+  width: 120px
+}
+
 .navbar ul li {
 	& a {color: $color-black}
 	margin-right: 1.5em;
 }
+
+// Content
+
+.feat-collection {
+  -webkit-columns: 100px 3; /* Chrome, Safari, Opera */
+  -moz-columns: 100px 3; /* Firefox */
+  columns: 100px 3;
+}
+
+// Footer
 
 footer {
 	padding: 20px
