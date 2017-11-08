@@ -5,7 +5,14 @@ html {
   @extend .poppins;
 }
 
-h1,h2 {
+h1 {font-size: 3rem;}
+h2 {font-size: 2.5rem;}
+h3 {font-size: 2rem;}
+h4 {font-size: 1.5rem;}
+h5 {font-size: 1.2rem;}
+h6 {font-size: 1rem;}
+
+h1,h2,h3,h4,h5,h6 {
 	@extend .londrina;
 }
 
@@ -16,6 +23,20 @@ h1,h2 {
 .navbar ul li {
 	& a {color: $color-black}
 	margin-right: 1.5em;
+}
+
+// Slider
+
+.slick-slide,
+.slick-slide img,
+.slick-slide .slick-active,
+.slick-slide .slick-current {outline: none}
+
+.product-image-thumbnails {margin: 0 3px;}
+
+.product-image-thumbnails .slick-current {
+  border-bottom: 3px solid $color-primary;
+  padding-bottom: 5px;
 }
 
 // Content

@@ -11,6 +11,9 @@ window.theme = window.theme || {};
 // =require slate/images.js
 // =require slate/variants.js
 
+// Vendor
+// =require vendor.js
+
 /*================ Sections ================*/
 // =require sections/product.js
 
@@ -19,6 +22,45 @@ window.theme = window.theme || {};
 // =require templates/customers-login.js
 
 $(document).ready(function() {
+
+  $('.product-image-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    adaptiveHeight: true,
+    asNavFor: '.product-image-thumbnails'
+  });
+
+  $(".product-image-thumbnails").slick({
+    asNavFor: '.product-image-slider',
+    focusOnSelect: true,
+    infinite: true,
+    slidesToShow: 5,
+    responsive: [{
+      breakpoint: 1224,
+      settings: {
+        slidesToShow: 8,
+        infinite: true
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 5,
+        infinite: true
+      }
+    }, {
+      breakpoint: 320,
+      // settings: "unslick" // destroys slick
+      settings: {
+        slidesToShow: 3,
+        infinite: true
+      }
+    }]
+  });
+
+
+  // Defaults
+
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 

@@ -1,13 +1,13 @@
 {% paginate collection.products by 12 %}
   <header role="banner">
-    <h1>{{ collection.title }}</h1>
+    <h1 class="text-center">{{ collection.title }}</h1>
     {% if collection.description != blank %}
-      <div class="rte">
+      <div class="rte text-center">
         {{ collection.description }}
       </div>
     {% endif %}
 
-    {% if collection.all_tags.size > 0 %}
+    <!-- {% if collection.all_tags.size > 0 %}
       <ul>
         {% for tag in collection.all_tags %}
           {% if current_tags contains tag %}
@@ -21,8 +21,14 @@
           {% endif %}
         {% endfor %}
       </ul>
-    {% endif %}
+    {% endif %} -->
   </header>
+
+  <hr />
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
 
   <div class="container">
     <div class="row">
@@ -93,6 +99,8 @@
       {% endfor %}
     </div>
   </div>
+
+  <hr />
 
   {% if paginate.pages > 1 %}
     {% include 'pagination' %}

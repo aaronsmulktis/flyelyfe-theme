@@ -4,6 +4,10 @@
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
+// Tether
+
+@import url('vendor/tether.min.css');
+
 /*==============BOOTSTRAP================*/
 
 @import url('vendor/bootstrap.min.css');
@@ -14,6 +18,10 @@
 
 // FONTS
 @import url('global/fonts.scss');
+
+// Slider
+@import url('vendor/slick.scss');
+@import url('vendor/slick-theme.scss');
 
 /*================ UTILS ================*/
 @import url('tools/mixins.scss');

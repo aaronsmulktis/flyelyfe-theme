@@ -11,6 +11,9 @@
         },
         "featured-product": {
           "type": "featured-product"
+        },
+        "related-products": {
+          "type": "related-products"
         }
       },
       "content_for_index": [
