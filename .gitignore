@@ -60,3 +60,6 @@ _site
 secrets.json
 .jekyll-metadata
 .ruby-version
+src/config/settings_data.json
+src/config/settings_data_backup.json
+src/config/settings_schema.json

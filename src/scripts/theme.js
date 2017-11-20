@@ -23,6 +23,40 @@ window.theme = window.theme || {};
 
 $(document).ready(function() {
 
+  $('.featured-slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    adaptiveHeight: true
+  });
+
+  $('.featured-products-slider').slick({
+    slidesToShow: 3,
+    // slidesToScroll: 1,
+    arrows: true,
+    adaptiveHeight: true,
+    responsive: [{
+      breakpoint: 1224,
+      settings: {
+        slidesToShow: 3,
+        infinite: true
+      }
+    }, {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 5,
+        infinite: true
+      }
+    }, {
+      breakpoint: 320,
+      // settings: "unslick" // destroys slick
+      settings: {
+        slidesToShow: 3,
+        infinite: true
+      }
+    }]
+  });
+
   $('.product-image-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,

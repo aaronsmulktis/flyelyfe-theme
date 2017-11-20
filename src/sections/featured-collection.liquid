@@ -4,43 +4,45 @@
 
 {%- assign collection = collections[section.settings.collection] -%}
 
-{% for product in collection.products limit: 6 %}
-
-<div class="feat-collection container">
+<div class="featured-collection container">
   <div class="row">
-    <div class="feat-product col-lg-3 col-md-4 col-sm-6">
-      <a href="{{ product.url | within: collection }}">
+    <div class="featured-products-slider col-lg-8 col-md-10 col-sm-12">
+      
+      {% for product in collection.products limit: 6 %}
+        <div class="featured-product">
+          <a href="{{ product.url | within: collection }}">
 
-        {% if product.featured_image != blank %}
-          {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
-        {% endif %}
+            {% if product.featured_image != blank %}
+              {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+            {% endif %}
 
-        <p>{{ product.title }}</p>
-      </a>
+            <p>{{ product.title }}</p>
+          </a>
 
-      <p>
-        {% if product.compare_at_price > product.price %}
+          <p>
+            {% if product.compare_at_price > product.price %}
 
-          {% if product.price_varies %}
-            {%- assign sale_price = product.price | money -%}
-            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-          {% else %}
-            {{ 'products.product.on_sale' | t }}
-            {{ product.price | money }}
-          {% endif %}
+              {% if product.price_varies %}
+                {%- assign sale_price = product.price | money -%}
+                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+              {% else %}
+                {{ 'products.product.on_sale' | t }}
+                {{ product.price | money }}
+              {% endif %}
 
-        {% else %}
+            {% else %}
 
-          {% if product.price_varies %}
-            {%- assign price = product.price | money -%}
-            {{ 'products.product.from_text_html' | t: price: price }}
-          {% else %}
-            {{ product.price | money }}
-          {% endif %}
+              {% if product.price_varies %}
+                {%- assign price = product.price | money -%}
+                {{ 'products.product.from_text_html' | t: price: price }}
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
 
-        {% endif %}
-      </p>
-    {% else %}
+            {% endif %}
+          </p>
+        </div>
+      {% else %}
 
       {% for i in (1..6) %}
         <a href="#">
