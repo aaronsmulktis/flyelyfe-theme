@@ -1,0 +1,93 @@
+<!-- {% section 'slide' %} -->
+
+<div class="featured-slider jumbotron jumbotron-fluid"> 
+    {% for block in section.blocks %}
+      {% case block.type %}
+      {% when 'background' and 'headline' and 'description' %}
+        <div class="featured-slide" style="background: url('{{ block.settings.background | img_url: '1024x' }}')">
+          <h1>{{ block.settings.headline }}</h1>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      {% when 'background2' and 'headline2' and 'description2' %}
+        <div class="featured-slide" style="background: url('{{ block.settings.background2 | img_url: '1024x' }}')">
+          <img src="{{ block.settings.background | img_url: '1024x' }}" />
+          <h1>{{ block.settings.headline }}</h1>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      {% endcase %}
+    {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Main Slider",
+    "settings": [{
+      "type": "text",
+      "id": "main-slider",
+      "label": "Main Slider"
+    }],
+    "blocks": [
+      {
+        "type": "headline",
+        "name": "Headline",
+        "settings": [{
+          "id": "headline",
+          "label": "Headline",
+          "type": "text"
+        }]
+      },
+      {
+        "type": "description",
+        "name": "description",
+        "settings": [{
+          "id": "description",
+          "label": "Description",
+          "type": "text"
+        }]
+      },
+      {
+        "type": "background",
+        "name": "Background",
+        "settings": [{
+          "id": "background",
+          "label": "Slide Background",
+          "type": "image_picker"
+        }]
+      },
+      {
+        "type": "headline2",
+        "name": "Headline2",
+        "settings": [{
+          "id": "headline2",
+          "label": "Slide 2 - Headline",
+          "type": "text"
+        }]
+      },
+      {
+        "type": "description2",
+        "name": "description2",
+        "settings": [{
+          "id": "description2",
+          "label": "Slide 2 - Description",
+          "type": "text"
+        }]
+      },
+      {
+        "type": "background2",
+        "name": "Background2",
+        "settings": [{
+          "id": "background2",
+          "label": "Slide 2 - Background",
+          "type": "image_picker"
+        }]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Main slider",
+        "category": "Slider"
+      }
+    ]
+  }
+
+{% endschema %}
