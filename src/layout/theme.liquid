@@ -3,6 +3,7 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="{{ settings.color_primary }}">
@@ -32,12 +33,74 @@
 
   {% include 'social-meta-tags' %}
 
+
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   <script>
     $(document).ready(function () {
       attachClickEvent();
     });
+
+    /* COOKIE CODE!
+    jQuery(document).ready(function($) {
+  "use strict";
+
+  // Create cookie
+  function createCookie(name, value, days) {
+      var expires;
+      if (days) {
+          var date = new Date();
+          date.setTime(date.getTime()+(days*24*60*60*1000));
+          expires = "; expires="+date.toGMTString();
+      }
+      else {
+          expires = "";
+      }
+      document.cookie = name+"="+value+expires+"; path=/";
+  }
+
+  // Read cookie
+  function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0) === ' ') {
+              c = c.substring(1,c.length);
+          }
+          if (c.indexOf(nameEQ) === 0) {
+              return c.substring(nameEQ.length,c.length);
+          }
+      }
+      return null;
+  }
+
+  function loadNewsletter() {
+    // only on mobile
+    if (readCookie("newsletter")) {
+      return;
+    } else {
+      $('#email-signup').delay(6000).css({'display' : 'flex'});
+    }
+  }
+    */
+
+    var showModalIfHidden = function() {
+      var modal = $('#emailModal');
+      let modalClasses = modal.attr('class');
+      // make sure this doesn't get called
+      // while the modal already exists
+      if (!modalClasses.includes('show')) {
+         modal.modal();
+         $('#emailInput').focus()
+      }
+    }
+
+    $(window).scroll(function() {
+       if ($(document).scrollTop() > 100) {
+         setTimeout(showModalIfHidden, 3000);
+       }
+     });
 
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
@@ -68,6 +131,9 @@
   <main role="main" id="MainContent container-fluid">
     {{ content_for_layout }}
   </main>
+
+
+  {% section 'email-modal' %}
 
   {% section 'footer' %}
 
