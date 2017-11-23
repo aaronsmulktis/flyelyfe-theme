@@ -133,8 +133,10 @@
         <hr />
 
         <div class="rte">
+          {% if product.description %}
           <h5><i class="btb bt-exclamation-circle"></i>&nbsp; Product Details</h5>
-          {{ product.description }}
+            {{ product.description }}
+          {% endif %}
         </div>
 
         <h5><i class="btb bt-share"></i>&nbsp; Share this product</h5>

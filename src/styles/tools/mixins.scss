@@ -117,3 +117,22 @@
   height: auto;
   margin: 0;
 }
+
+.spacer20 {margin-top: 20px;}
+.spacer40 {margin-top: 40px;}
+
+.noPadding {
+  padding: 0;
+}
+
+.pad15 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.transition {
+  -webkit-transition: all 0.33s ease-in-out;
+  -moz-transition: all 0.33s ease-in-out;
+  -o-transition: all 0.33s ease-in-out;
+  transition: all 0.33s ease-in-out; 
+}

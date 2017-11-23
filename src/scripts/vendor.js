@@ -19,6 +19,11 @@
 // =require vendor/bootstrap.min.js
 
 /*!
+ * perfect-scrollbar.min.js
+ */
+// =require vendor/perfect-scrollbar.min.js
+
+/*!
  * slick.min.js
  */
 // =require vendor/slick.min.js
