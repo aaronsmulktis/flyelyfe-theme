@@ -7,7 +7,7 @@
 <div class="featured-collection container">
   <div class="row">
     <div class="featured-products-slider col-lg-8 col-md-10 col-sm-12">
-      
+
       {% for product in collection.products limit: 6 %}
         <div class="featured-product">
           <a href="{{ product.url | within: collection }}">

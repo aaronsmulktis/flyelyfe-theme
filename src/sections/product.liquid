@@ -18,13 +18,20 @@
 
         <div class="product-image-slider">
         {% if product.images.size > 1 %}
-          
+
             {% for image in product.images %}
               <div class="">
-                <img src="{{ image.src | img_url: '480x480' }}" alt="{{ image.alt | escape }}">
+                <a data-alt="{{ image.alt | escape }}" href="{{ image.src | img_url: '480x480' }}" data-lightbox="#img{{ forloop.index }}">
+
+                  <img src="{{ image.src | img_url: '480x480' }}">
+                </a>
+
+                <!-- lightbox container hidden with CSS -->
+
               </div>
+
             {% endfor %}
-          
+
         {% endif %}
         </div>
 
@@ -32,7 +39,7 @@
 
         <div class="product-image-thumbnails">
         {% if product.images.size > 1 %}
-          
+
             {% for image in product.images %}
               <div class="">
                 <!-- <a href="{{ image.src | img_url: '480x480' }}" data-product-single-thumbnail> -->
