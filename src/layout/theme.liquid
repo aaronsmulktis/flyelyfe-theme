@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="{{ settings.color_primary }}">
@@ -92,13 +93,35 @@
       // while the modal already exists
       if (!modalClasses.includes('show')) {
          modal.modal();
-         $('#emailInput').focus()
       }
     }
 
+    var showBannerIfHidden = function() {
+      if (window.location.href.split('/').length > 4) {
+          return;
+      }
+      let banner = $('#newsletterBanner');
+      if (!banner.is(":visible")) {
+        banner.show();
+      }
+    }
+
+    var hideBannerIfShown = function() {
+      let banner = $('#newsletterBanner');
+      if (banner.is(":visible")) {
+        banner.hide();
+      }
+    }
+
+    // OnScroll Handles
     $(window).scroll(function() {
-       if ($(document).scrollTop() > 100) {
+       if ($(document).scrollTop() > 10000) {
          setTimeout(showModalIfHidden, 3000);
+       }
+       if ($(document).scrollTop() > 300) {
+         showBannerIfHidden();
+       } else if ($(document).scrollTop() < 200) {
+         hideBannerIfShown();
        }
      });
 
@@ -112,6 +135,9 @@
       },
       moneyFormat: {{ shop.money_format | json }}
     };
+
+
+
   </script>
 
   {% if template.directory == 'customers' %}
@@ -120,9 +146,20 @@
   {% endif %}
 
   {{ content_for_header }}
+
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+  <!--THIS IS THE TOP BAR FOR NEWS LETTER! -->
+  <div id="newsletterBanner" class="border sticky-top nav mx-auto" style="display: none; z-index: 1; height: 35px; background-color: #EAEAEA; opacity:0.9">
+    <form style="margin: auto;" class="form-inline .justify-content-center" action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+        <div class="form-group">
+          <div class="input-group input-group-sm">
+            <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control" placeholder="Join our Newsletter" aria-label="" aria-describedby="sizing-addon2">
+          </div>
+        </div>
+    </form>
+  </div>
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
@@ -142,6 +179,13 @@
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+  <script src="{{ 'lightbox.js' | asset_url }}"></script>
+  <script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'showImageNumberLabel': false
+    })
+</script>
 
 </body>
 </html>

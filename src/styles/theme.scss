@@ -4,6 +4,10 @@
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
+// Lightbox
+
+@import url('lightbox.css');
+
 // Tether
 
 @import url('vendor/tether.min.css');
