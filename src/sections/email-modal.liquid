@@ -41,3 +41,29 @@
     </div>
   </div>
 </div>
+
+{% schema %}
+  {
+    "name": "Email Modal",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "text",
+        "type": "text",
+        "label": "Text Entry"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Email Modal",
+        "category": "Conversion"
+      }
+    ]
+  }
+
+{% endschema %}

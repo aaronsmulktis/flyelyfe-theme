@@ -1,10 +1,9 @@
-<!-- {% section 'slide' %} -->
-
 <div class="featured-slider jumbotron jumbotron-fluid"> 
     {% for block in section.blocks %}
       {% case block.type %}
-      {% when 'background' and 'headline' and 'description' %}
+      {% when 'background' %}
         <div class="featured-slide" style="background: url('{{ block.settings.background | img_url: '1024x' }}')">
+          {% when 'headline' %}
           <h1>{{ block.settings.headline }}</h1>
           <p>{{ block.settings.description }}</p>
         </div>

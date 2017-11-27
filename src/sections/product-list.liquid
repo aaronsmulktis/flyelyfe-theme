@@ -1,12 +1,14 @@
+<!-- Homepage Product List -->
+
 {%- assign collection = collections[section.settings.collection] -%}
 
 {% paginate collection.products by 50 %}
 
+  <hr />
+
   {% if paginate.pages > 1 %}
     {% include 'pagination' %}
   {% endif %}
-
-  <hr />
 
   <div class="container">
     <div class="row">
@@ -78,11 +80,12 @@
     </div>
   </div>
 
-  <hr />
-
   {% if paginate.pages > 1 %}
     {% include 'pagination' %}
   {% endif %}
+
+  <hr />
+
 {% endpaginate %}
 
 {% schema %}
