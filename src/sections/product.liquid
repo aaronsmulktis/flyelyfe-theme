@@ -21,7 +21,7 @@
 
             {% for image in product.images %}
               <div class="">
-                <a data-alt="{{ image.alt | escape }}" href="{{ image.src | img_url: '480x480' }}" data-lightbox="#img{{ forloop.index }}">
+                <a data-alt="{{ image.alt | escape }}" href="{{ image.src | img_url: '480x480' }}" data-lightbox="product-set">
 
                   <img src="{{ image.src | img_url: '480x480' }}">
                 </a>
