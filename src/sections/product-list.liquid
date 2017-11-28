@@ -6,6 +6,14 @@
 
   <hr />
 
+  {% if section.settings.title != blank %}
+    <h2 class="text-center">{{ section.settings.title | escape }}</h2>
+  {% endif %}
+
+  {% if section.settings.description != blank %}
+    <p class="text-center">{{ section.settings.description | escape }}</p>
+  {% endif %}
+
   {% if paginate.pages > 1 %}
     {% include 'pagination' %}
   {% endif %}
@@ -14,15 +22,19 @@
     <div class="row">
       {% for product in collection.products %}
         <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
-          {% if product.featured_image != blank %}
-            <a href="{{ product.url | within: collection }}">
-              {{ product.featured_image.src | img_url: '480x480' | img_tag: product.featured_image.alt }}
-            </a>
-          {% endif %}
+          <a href="{{ product.url | within: collection }}" class="product-image">
+            {% if product.featured_image != blank %}
+              <div class="reveal">
+                {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+                <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" />
+              </div>
+            {% endif %}
+          </a>
 
-          <p>
-            <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-          </p>
+          <a href="{{ product.url | within: collection }}" class="product-title">
+            <h5>{{ product.title }}</h5>
+          </a>
+          
           <p>
             {% if product.compare_at_price > product.price %}
 
@@ -97,6 +109,12 @@
         "id": "title",
         "label": "Heading",
         "default": "Product List"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Lorem ipsum..."
       },
       {
         "id": "collection",

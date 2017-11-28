@@ -1,6 +1,9 @@
 {% if section.settings.title != blank %}
   <h2 class="pad15">{{ section.settings.title | escape }}</h2>
 {% endif %}
+{% if section.settings.description != blank %}
+  <p class="pad15">{{ section.settings.description | escape }}</p>
+{% endif %}
 
 {%- assign collection = collections[section.settings.collection] -%}
 
@@ -82,6 +85,12 @@
         "id": "title",
         "label": "Heading",
         "default": "Featured collection"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Lorem ipsum..."
       },
       {
         "id": "collection",

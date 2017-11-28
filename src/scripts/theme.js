@@ -92,8 +92,6 @@ $(document).ready(function() {
     }]
   });
 
-  
-
 
   // Defaults
 

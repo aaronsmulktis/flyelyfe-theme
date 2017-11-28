@@ -16,6 +16,18 @@ h1,h2,h3,h4,h5,h6 {
 	@extend .londrina;
 }
 
+.btn-outline-success {
+  color: $color-primary;
+  background-image: none;
+  background-color: transparent;
+  border-color: $color-primary;
+}
+.btn-outline-success:hover {
+  background-color: $color-primary;
+}
+
+// Navbar
+
 .navbar-brand {
   width: 120px
 }
@@ -23,6 +35,10 @@ h1,h2,h3,h4,h5,h6 {
 .navbar ul li {
 	& a {color: $color-black}
 	margin-right: 1.5em;
+}
+
+.form-control:focus {
+  border-color: $color-primary;
 }
 
 // Slider
@@ -75,7 +91,6 @@ h1,h2,h3,h4,h5,h6 {
       }
     }
 
-    width: 230px; height: 330px;
     margin: 0 5px;
     display: inline-table !important;
     background-size: cover;
@@ -89,9 +104,17 @@ h1,h2,h3,h4,h5,h6 {
     flex: 0 0 auto;
     display: flex;
     flex-wrap: nowrap;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     overflow: hidden;
   }
+}
+
+.page-link {color: $color-dark;}
+.page-link:hover {color: $color-dark;}
+.page-item.active .page-link {
+  background-color: $color-primary;
+  border-color: $color-primary;
 }
 
 .reveal .hidden { display: block !important; visibility: visible !important;}
@@ -108,7 +131,8 @@ h1,h2,h3,h4,h5,h6 {
 }
 .reveal:hover .hidden { 
   z-index: 100000;
-  opacity: 1;    
+  opacity: 1;  
+  background-color: white;  
 }
 .reveal .caption {
   position: absolute;
@@ -142,6 +166,14 @@ h1,h2,h3,h4,h5,h6 {
   -webkit-columns: 100px 3; /* Chrome, Safari, Opera */
   -moz-columns: 100px 3; /* Firefox */
   columns: 100px 3;
+}
+
+.product-snippet {
+  & a.product-image {
+    height: 200px;
+    overflow: hidden;
+    display: block;
+  }
 }
 
 // Footer
