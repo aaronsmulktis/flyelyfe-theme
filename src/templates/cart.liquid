@@ -2,7 +2,7 @@
   <h1>{{ 'cart.general.title' | t }}</h1>
 
   <form action="/cart" method="post" novalidate>
-    <table class="responsive-table">
+    <table class="table table-responsive">
       <thead class="small--hide">
         <tr>
           <th colspan="2">{{ 'cart.label.product' | t }}</th>
@@ -76,6 +76,7 @@
             </td>
             <td data-label="{{ 'cart.label.quantity' | t }}">
               <input type="number"
+                     class="form-control"
                      name="updates[]"
                      id="updates_{{ item.key }}"
                      value="{{ item.quantity }}"
@@ -93,7 +94,7 @@
 
     {% if settings.cart_notes_enable %}
       <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-      <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+      <textarea class="form-control" name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
     {% endif %}
 
     <p>{{ 'cart.general.subtotal' | t }}</p>
@@ -102,8 +103,8 @@
       <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
     <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
-    <input type="submit" name="update" value="{{ 'cart.general.update' | t }}">
-    <input type="submit" name="checkout" class="btn" value="{{ 'cart.general.checkout' | t }}">
+    <input type="submit" name="update" class="btn btn-outline-success" value="{{ 'cart.general.update' | t }}">
+    <input type="submit" name="checkout" class="btn btn-primary" value="{{ 'cart.general.checkout' | t }}">
   </form>
 {% else %}
   <h1>{{ 'cart.general.title' | t }}</h1>

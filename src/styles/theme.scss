@@ -4,17 +4,20 @@
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
+/*================ UTILS ================*/
+@import url('tools/mixins.scss');
+
+/*================ SETTINGS ================*/
+@import url('settings/variables.scss.liquid');
+
+
+// Lightbox
 
 // fancybox
 
 @import url('jquery.fancybox.css');
 @import url("jquery.fancybox-buttons.css");
 
-// Lightbox
-
-
-
-@import url('lightbox.css');
 
 // Tether
 
@@ -38,12 +41,6 @@
 @import url('vendor/slick.scss');
 @import url('vendor/slick-theme.scss');
 
-/*================ UTILS ================*/
-@import url('tools/mixins.scss');
-
-/*================ SETTINGS ================*/
-@import url('settings/variables.scss.liquid');
-
 /*================ COMMON ================*/
 @import url('global/normalize.scss');
 @import url('global/slate-reset.scss');
@@ -53,7 +50,6 @@
 @import url('global/icons.scss');
 @import url('global/rte.scss');
 @import url('global/responsive-tables.scss');
-@import url('global/links-buttons.scss');
 @import url('global/forms.scss');
 @import url('global/blank-states.scss');
 

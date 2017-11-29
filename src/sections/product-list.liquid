@@ -14,60 +14,54 @@
     <p class="text-center">{{ section.settings.description | escape }}</p>
   {% endif %}
 
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
-
   <div id="MainContent" class="container">
     <div class="row">
       <div class="EndlessScroll row">
 
       {% for product in collection.products %}
         <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
-          <a href="{{ product.url | within: collection }}" class="product-image">
+          <a href="{{ product.url | within: collection }}">
             {% if product.featured_image != blank %}
-              <div class="reveal">
+              <div class="reveal product-image">
                 {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
                 <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" />
               </div>
             {% endif %}
-          </a>
 
-          <a href="{{ product.url | within: collection }}" class="product-title">
             <h5>{{ product.title }}</h5>
+
+            <p>
+              {% if product.compare_at_price > product.price %}
+
+                {% if product.price_varies %}
+                  {%- assign sale_price = product.price | money -%}
+                  {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                {% else %}
+                  {{ 'products.product.on_sale' | t }}
+                  {{ product.price | money }}
+                {% endif %}
+
+              {% else %}
+
+                {% if product.price_varies %}
+                  {%- assign price = product.price | money -%}
+                  {{ 'products.product.from_text_html' | t: price: price }}
+                {% else %}
+                  {{ product.price | money }}
+                {% endif %}
+
+              {% endif %}
+
+              {% if product.compare_at_price > product.price %}
+                <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                <s>{{ product.compare_at_price | money }}</s>
+              {% endif %}
+
+              {% unless product.available %}
+                {{ 'products.product.sold_out' | t }}
+              {% endunless %}
+            </p>
           </a>
-
-          <p>
-            {% if product.compare_at_price > product.price %}
-
-              {% if product.price_varies %}
-                {%- assign sale_price = product.price | money -%}
-                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-              {% else %}
-                {{ 'products.product.on_sale' | t }}
-                {{ product.price | money }}
-              {% endif %}
-
-            {% else %}
-
-              {% if product.price_varies %}
-                {%- assign price = product.price | money -%}
-                {{ 'products.product.from_text_html' | t: price: price }}
-              {% else %}
-                {{ product.price | money }}
-              {% endif %}
-
-            {% endif %}
-
-            {% if product.compare_at_price > product.price %}
-              <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-              <s>{{ product.compare_at_price | money }}</s>
-            {% endif %}
-
-            {% unless product.available %}
-              {{ 'products.product.sold_out' | t }}
-            {% endunless %}
-          </p>
         </div>
 
       {% else %}
@@ -93,9 +87,9 @@
       {% endfor %}
 
       {% if paginate.next %}
-          <div class="pagination">
+          <div class="pagination justify-content-center">
             <p>&nbsp;</p>
-              <a href="{{ paginate.next.url }}">Loading More</a>
+            <a href="{{ paginate.next.url }}"><i class="bts bt-spinner bt-pulse"></i></a>
           </div>
         <!-- <div id="more"><p>&darr; <a href="{{ paginate.next.url }}">More</a></p></div> -->
       {% endif %}

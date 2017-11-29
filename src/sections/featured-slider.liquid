@@ -1,15 +1,15 @@
-<div class="featured-slider jumbotron jumbotron-fluid"> 
+<div class="featured-slider jumbotron"> 
     {% for block in section.blocks %}
       {% case block.type %}
-      {% when 'background' %}
+      {% when 'background' and 'description' and 'headline' %}
         <div class="featured-slide" style="background: url('{{ block.settings.background | img_url: '1024x' }}')">
-          {% when 'headline' %}
+          <!-- <img src="{{ block.settings.background | img_url: '1024x' }}" /> -->
           <h1>{{ block.settings.headline }}</h1>
           <p>{{ block.settings.description }}</p>
         </div>
-      {% when 'background2' and 'headline2' and 'description2' %}
+      {% when 'background2' %}
         <div class="featured-slide" style="background: url('{{ block.settings.background2 | img_url: '1024x' }}')">
-          <img src="{{ block.settings.background | img_url: '1024x' }}" />
+          <!-- <img src="{{ block.settings.background2 | img_url: '1024x' }}" /> -->
           <h1>{{ block.settings.headline }}</h1>
           <p>{{ block.settings.description }}</p>
         </div>
@@ -41,7 +41,7 @@
         "settings": [{
           "id": "description",
           "label": "Description",
-          "type": "text"
+          "type": "textarea"
         }]
       },
       {
@@ -68,7 +68,7 @@
         "settings": [{
           "id": "description2",
           "label": "Slide 2 - Description",
-          "type": "text"
+          "type": "textarea"
         }]
       },
       {

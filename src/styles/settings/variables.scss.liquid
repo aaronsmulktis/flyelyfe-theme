@@ -1,7 +1,7 @@
 /*================ Color Variables ================*/
 $color-primary: {{ settings.color_primary }};
-$color-secondary: adjust-hue($color-primary, 45%);
-$color-tertiary: adjust-hue($color-primary, 90%);
+$color-secondary: adjust-hue($color-primary, 33deg);
+$color-tertiary: adjust-hue($color-primary, 66deg);
 $color-transparent: rbga(0,0,0,0);
 
 // #29BEA4 teal
@@ -15,18 +15,18 @@ $color-white: #fff;
 $color-body-text: {{ settings.color_body_text }};
 
 // Backgrounds
-$color-body: #fff;
+$color-body: $color-white;
 
 // Border colors
-$color-border: #f6f6f6;
+$color-border: $color-primary;
 
 // Helper colors for form error states
-$color-disabled: #000;
-$color-disabled-border: #000;
-$color-error: #000;
-$color-error-bg: #000;
-$color-success: #000;
-$color-success-bg: #000;
+$color-disabled: $color-black;
+$color-disabled-border: $color-black;
+$color-error: $color-black;
+$color-error-bg: $color-black;
+$color-success: $color-black;
+$color-success-bg: $color-black;
 
 /*================ Typography Variables ================*/
 $font-weight-normal: 400;

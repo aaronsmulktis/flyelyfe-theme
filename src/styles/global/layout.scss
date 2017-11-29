@@ -1,8 +1,9 @@
 /*================ General layout styles ================*/
 body,
 html {
-  background-color: $color-body;
-  @extend .poppins;
+  width: 100%;
+  background-color: desaturate(lighten($color-primary, 44%), 66%);
+  @extend .anonymous;
 }
 
 h1 {font-size: 3rem;}
@@ -16,6 +17,33 @@ h1,h2,h3,h4,h5,h6 {
 	@extend .londrina;
 }
 
+/*================ Links & Buttons ================*/
+a {color: $color-black;}
+a:visited {color: $color-black;}
+a:hover {color: $color-primary; text-decoration: none;}
+a:active {color: $color-primary;}
+
+.btn {
+  @include prefix('user-select', 'none', moz ms webkit spec);
+  @include prefix(appearance, none, webkit moz spec);
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  @extend .londrina;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+  border: darken($color-primary, 15%);
+}
+.btn-primary:hover {
+  border: darken($color-tertiary, 15%);
+  background-color: $color-tertiary;
+}
+
 .btn-outline-success {
   color: $color-primary;
   background-image: none;
@@ -24,24 +52,67 @@ h1,h2,h3,h4,h5,h6 {
 }
 .btn-outline-success:hover {
   background-color: $color-primary;
+  border-color: darken($color-primary, 15%);
 }
 
 // Navbar
 
 .navbar-brand {
-  width: 120px
+  width: 120px;
+  position: relative;
+  top: -10px;
+  margin-bottom: -100px;
+  z-index: 1;
+}
+
+.navbar-brand:hover {
+  @extend .wiggle;
 }
 
 .navbar ul li {
-	& a {color: $color-black}
+	& a {color: $color-black; font-weight: bold}
+  & a:hover {color: $color-primary; font-weight: bold}
 	margin-right: 1.5em;
+  padding: 15px 0px;
 }
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+  .navbar ul li {padding: 0px;}
+}
+
+.cart-link {padding-top: 15px !important;}
 
 .form-control:focus {
   border-color: $color-primary;
 }
 
+.badge-primary {
+  border-radius: 50%;
+  background-color: $color-primary;
+  width: 14px;
+  height: 13px;
+  font-size: 8px;
+  position: relative;
+  top: -12px;
+  left: -14px;
+}
+
+#MainContent {
+  padding-top: 15px;
+  background-color: $color-white;
+}
+
 // Slider
+
+.jumbotron {padding: 0; margin: 0;}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {height: 320px}
+
+.slick-slide {padding: 0 40px;}
 
 .slick-slide,
 .slick-slide img,
@@ -54,6 +125,19 @@ h1,h2,h3,h4,h5,h6 {
   border-bottom: 3px solid $color-primary;
   padding-bottom: 5px;
 }
+
+.slick-arrow, .slick-arrow:focus {
+  background: $color-black;
+  border: 2px solid $color-white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.slick-arrow:hover {
+  background: $color-primary;
+}
+.slick-next {right: 10px;}
+.slick-prev {left: 10px;}
 
 // Featured Collection
 .featured-products-slider {
@@ -79,14 +163,14 @@ h1,h2,h3,h4,h5,h6 {
     linear-gradient(to left, $color-black, $color-transparent 20%);
 
   & .featured-product {
-    & a.product-image {
+    & .product-image {
       height: 200px;
       overflow: hidden;
       display: block;
       & img {
         @extend .transition;
         margin: 0 auto;
-        width: 100%;
+        height: auto;
         background: $color-white;
       }
     }
@@ -160,6 +244,12 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+.pagination {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
 // Content
 
 .feat-collection {
@@ -169,7 +259,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .product-snippet {
-  & a.product-image {
+  & .product-image {
     height: 200px;
     overflow: hidden;
     display: block;

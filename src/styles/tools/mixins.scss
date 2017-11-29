@@ -136,3 +136,69 @@
   -o-transition: all 0.33s ease-in-out;
   transition: all 0.33s ease-in-out; 
 }
+
+// Wiggle
+@-ms-keyframes wiggle {
+  0% {
+    -ms-transform: rotate(5deg);
+  }
+  15% {
+    -ms-transform: rotate(-5deg);
+  }
+  25% {
+    -ms-transform: rotate(5deg);
+  }
+  50% {
+    -ms-transform: rotate(0deg);
+  }
+}
+@-moz-keyframes wiggle {
+  0% {
+    -moz-transform: rotate(5deg);
+  }
+  15% {
+    -moz-transform: rotate(-5deg);
+  }
+  25% {
+    -moz-transform: rotate(5deg);
+  }
+  50% {
+    -moz-transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(5deg);
+  }
+  15% {
+    -webkit-transform: rotate(-5deg);
+  }
+  25% {
+    -webkit-transform: rotate(5deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(5deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.wiggle {
+  -ms-animation: wiggle 1s ease-in-out;
+  -moz-animation: wiggle 1s ease-in-out;
+  -webkit-animation: wiggle 1s ease-in-out;
+  animation: wiggle 1s ease-in-out;
+  // -webkit-animation-fill-mode: forwards;
+}

@@ -115,11 +115,16 @@
         {% endfor %}
       </ul>
       <div class="d-flex flex-row-reverse">
-        <a class="p-2" href="/cart">
-          <i class="btb bt-shopping-cart"></i>
+        <a class="p-2 cart-link" href="/cart">
+          <i class="btb bt-shopping-cart"></i> 
+          {% if cart.item_count != 0 %}
+            <span class="badge badge-primary">
+              {{ cart.item_count }}
+            </span>
+          {% endif %}
           <!-- {% include 'icon-cart' %} -->
-          {{ 'layout.cart.title' | t }}
-          ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+          <!-- {{ 'layout.cart.title' | t }} -->
+          <!-- ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }}) -->
         </a>
         <form class="p-2 form-inline my-2 my-lg-0" action="/search" method="get" role="search">
           <label for="Search" class="label-hidden">
