@@ -21,16 +21,23 @@
 
             {% for image in product.images %}
               <div class="">
-                <a data-alt="{{ image.alt | escape }}" href="{{ image.src | img_url: '480x480' }}" data-lightbox="product-set">
+                <a class="fancybox" rel="gallery" alt="{{ image.alt | escape }}" href="{{ image.src | img_url: '960x960' }}">
 
-                  <img src="{{ image.src | img_url: '480x480' }}">
+                  <img class="fancybox-image" id="{{ image.src | remove: ' ' | strip_newlines | downcase | md5 }}" data-zoom-image="{{ image.src | img_url: '960x960' }}" src="{{ image.src | img_url: '480x480' }}">
                 </a>
-
-                <!-- lightbox container hidden with CSS -->
 
               </div>
 
             {% endfor %}
+            <!-- Activate Lightbox Zoom -->
+            <script>
+              $("a.fancybox").fancybox({
+                prevEffect	: 'none',
+            		nextEffect	: 'none',
+            		closeBtn		: false,
+                arrows      : true
+              });
+            </script>
 
         {% endif %}
         </div>

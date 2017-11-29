@@ -4,7 +4,15 @@
     - You cannot use native CSS/Sass @imports in this file without a build script
 ==============================================================================*/
 
+
+// fancybox
+
+@import url('jquery.fancybox.css');
+@import url("jquery.fancybox-buttons.css");
+
 // Lightbox
+
+
 
 @import url('lightbox.css');
 

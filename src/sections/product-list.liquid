@@ -23,7 +23,6 @@
       <div class="EndlessScroll row">
 
       {% for product in collection.products %}
-       <!-- TODO : factor this into a product-snippet -->
         <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
           <a href="{{ product.url | within: collection }}" class="product-image">
             {% if product.featured_image != blank %}
