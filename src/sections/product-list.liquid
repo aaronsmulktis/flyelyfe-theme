@@ -25,9 +25,9 @@
       {% for product in collection.products %}
        <!-- TODO : factor this into a product-snippet -->
         <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
-          <a href="{{ product.url | within: collection }}" class="product-image">
+          <a href="{{ product.url | within: collection }}">
             {% if product.featured_image != blank %}
-              <div class="reveal">
+              <div class="reveal product-image">
                 {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
                 <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" />
               </div>
