@@ -73,7 +73,7 @@
     "general": {
       "title": "Flye Cart",
       "remove": "Remove",
-      "note": "Special instructions for seller",
+      "note": "Special instructions",
       "subtotal": "Subtotal",
       "shipping_at_checkout": "Shipping & taxes calculated at checkout",
       "update": "Update Cart",

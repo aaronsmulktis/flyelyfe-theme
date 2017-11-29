@@ -26,8 +26,8 @@
 }*/
 @font-face {
   font-family: 'Black Tie';
-  src: url('black-tie/BlackTie-Light-webfont.eot?v=1.0.0');
-  src: url('black-tie/BlackTie-Light-webfont.eot?#iefix&v=1.0.0') format('embedded-opentype'), url('black-tie/BlackTie-Light-webfont.woff2?v=1.0.0') format('woff2'), url('black-tie/BlackTie-Light-webfont.woff?v=1.0.0') format('woff'), url('black-tie/BlackTie-Light-webfont.ttf?v=1.0.0') format('truetype'), url('black-tie/BlackTie-Light-webfont.svg?v=1.0.0#black_tielight') format('svg');
+  src: url('BlackTie-Light-webfont.eot?v=1.0.0');
+  src: url('BlackTie-Light-webfont.eot?#iefix&v=1.0.0') format('embedded-opentype'), url('BlackTie-Light-webfont.woff2?v=1.0.0') format('woff2'), url('BlackTie-Light-webfont.woff?v=1.0.0') format('woff'), url('BlackTie-Light-webfont.ttf?v=1.0.0') format('truetype'), url('BlackTie-Light-webfont.svg?v=1.0.0#black_tielight') format('svg');
   font-weight: 200;
   font-style: normal;
 }

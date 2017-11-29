@@ -29,43 +29,41 @@
                 <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" />
               </div>
             {% endif %}
-          </a>
 
-          <a href="{{ product.url | within: collection }}" class="product-title">
             <h5>{{ product.title }}</h5>
+
+            <p>
+              {% if product.compare_at_price > product.price %}
+
+                {% if product.price_varies %}
+                  {%- assign sale_price = product.price | money -%}
+                  {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                {% else %}
+                  {{ 'products.product.on_sale' | t }}
+                  {{ product.price | money }}
+                {% endif %}
+
+              {% else %}
+
+                {% if product.price_varies %}
+                  {%- assign price = product.price | money -%}
+                  {{ 'products.product.from_text_html' | t: price: price }}
+                {% else %}
+                  {{ product.price | money }}
+                {% endif %}
+
+              {% endif %}
+
+              {% if product.compare_at_price > product.price %}
+                <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+                <s>{{ product.compare_at_price | money }}</s>
+              {% endif %}
+
+              {% unless product.available %}
+                {{ 'products.product.sold_out' | t }}
+              {% endunless %}
+            </p>
           </a>
-          
-          <p>
-            {% if product.compare_at_price > product.price %}
-
-              {% if product.price_varies %}
-                {%- assign sale_price = product.price | money -%}
-                {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-              {% else %}
-                {{ 'products.product.on_sale' | t }}
-                {{ product.price | money }}
-              {% endif %}
-
-            {% else %}
-
-              {% if product.price_varies %}
-                {%- assign price = product.price | money -%}
-                {{ 'products.product.from_text_html' | t: price: price }}
-              {% else %}
-                {{ product.price | money }}
-              {% endif %}
-
-            {% endif %}
-
-            {% if product.compare_at_price > product.price %}
-              <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-              <s>{{ product.compare_at_price | money }}</s>
-            {% endif %}
-
-            {% unless product.available %}
-              {{ 'products.product.sold_out' | t }}
-            {% endunless %}
-          </p>
         </div>
 
       {% else %}
