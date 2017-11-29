@@ -2,7 +2,7 @@
 
 {%- assign collection = collections[section.settings.collection] -%}
 
-{% paginate collection.products by 50 %}
+{% paginate collection.products by 5 %}
 
   <hr />
 
@@ -18,8 +18,10 @@
     {% include 'pagination' %}
   {% endif %}
 
-  <div class="container">
+  <div id="MainContent" class="container">
     <div class="row">
+      <div class="EndlessScroll row">
+
       {% for product in collection.products %}
         <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
           <a href="{{ product.url | within: collection }}" class="product-image">
@@ -34,7 +36,7 @@
           <a href="{{ product.url | within: collection }}" class="product-title">
             <h5>{{ product.title }}</h5>
           </a>
-          
+
           <p>
             {% if product.compare_at_price > product.price %}
 
@@ -89,12 +91,21 @@
         {% endif %}
 
       {% endfor %}
+
+      {% if paginate.next %}
+          <div class="pagination">
+            <p>&nbsp;</p>
+              <a href="{{ paginate.next.url }}">Loading More</a>
+          </div>
+        <!-- <div id="more"><p>&darr; <a href="{{ paginate.next.url }}">More</a></p></div> -->
+      {% endif %}
+    </div>
     </div>
   </div>
 
-  {% if paginate.pages > 1 %}
-    {% include 'pagination' %}
-  {% endif %}
+
+
+
 
   <hr />
 
