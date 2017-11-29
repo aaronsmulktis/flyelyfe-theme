@@ -107,6 +107,13 @@ and (orientation : portrait) {
 
 // Slider
 
+.jumbotron {padding: 0; margin: 0;}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {height: 320px}
+
+.slick-slide {padding: 0 40px;}
+
 .slick-slide,
 .slick-slide img,
 .slick-slide .slick-active,
@@ -129,6 +136,8 @@ and (orientation : portrait) {
 .slick-arrow:hover {
   background: $color-primary;
 }
+.slick-next {right: 10px;}
+.slick-prev {left: 10px;}
 
 // Featured Collection
 .featured-products-slider {
