@@ -110,9 +110,9 @@ and (orientation : portrait) {
 .jumbotron {padding: 0; margin: 0;}
 
 .slick-slider .slick-track,
-.slick-slider .slick-list {height: 320px}
+.featured-slider .slick-slider .slick-list {height: 320px}
 
-.slick-slide {padding: 0 40px;}
+.featured-slider .slick-slide {padding: 0 40px;}
 
 .slick-slide,
 .slick-slide img,
