@@ -3,7 +3,7 @@ body,
 html {
   width: 100%;
   background-color: desaturate(lighten($color-primary, 44%), 66%);
-  @extend .anonymous;
+  @extend .font2;
 }
 
 h1 {font-size: 3rem;}
@@ -14,7 +14,7 @@ h5 {font-size: 1.2rem;}
 h6 {font-size: 1rem;}
 
 h1,h2,h3,h4,h5,h6 {
-	@extend .londrina;
+	@extend .font1;
 }
 
 /*================ Links & Buttons ================*/
@@ -32,7 +32,7 @@ a:active {color: $color-primary;}
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  @extend .londrina;
+  @extend .font1;
 }
 
 .btn-primary {
@@ -81,6 +81,10 @@ and (min-device-width : 375px)
 and (max-device-width : 667px)
 and (orientation : portrait) {
   .navbar ul li {padding: 0px;}
+}
+
+input#Search, input#mce-EMAIL {
+  @extend .font2;
 }
 
 .cart-link {padding-top: 15px !important;}
