@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Zoom Script -->
+  <script src="{{ 'jquery.fancybox.js' | asset_url }}"></script>
+  <script src="{{ 'jquery.fancybox-buttons.js' | asset_url }}"></script>
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,9 +41,7 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   <script>
-    $(document).ready(function () {
-      attachClickEvent();
-    });
+
 
     /* COOKIE CODE!
     jQuery(document).ready(function($) {
@@ -147,42 +148,6 @@
     <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
   {% endif %}
 
-  <script src="{{ 'jquery-dotimeout.min.js' | asset_url }}"></script>
-
-  {% if template == "index" %}
-        <script>
-
-        function ScrollExecute() {
-          if($(document).height() - 800 < ($(document).scrollTop() + $(window).height())) {
-              scrollNode = $('#more').last();
-              scrollURL = $('#more p a').last().attr("href");
-              console.log(scrollNode.length);
-              if(scrollNode.length > 0 && scrollNode.css('display') != 'none') {
-                  console.log(scrollNode.length);
-                  $.ajax({
-                      type: 'GET',
-                      url: scrollURL,
-                      beforeSend: function() {
-                          scrollNode.clone().empty().insertAfter(scrollNode).append('<img src=\"{{ "loading.gif" | asset_url }}\" />');
-                          scrollNode.hide();
-                      },
-                      success: function(data) {
-                          // remove loading feedback
-                          scrollNode.next().remove();
-                          var filteredData = $(data).find(".product");
-                          filteredData.insertBefore( $("#product-list-foot") );
-                      },
-                      dataType: "html"
-                  });
-              }
-          }
-        }
-        // $(window).scroll(function() {
-        //     $.doTimeout('scroll', 200, ScrollExecute);
-        // });
-
-        </script>
-  {% endif %}
 
   {{ content_for_header }}
 
@@ -190,13 +155,16 @@
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
   <!--THIS IS THE TOP BAR FOR NEWSLETTER! -->
-  <div id="newsletterBanner" class="border sticky-top nav mx-auto" style="display: none; z-index: 1; height: 35px; background-color: #EAEAEA; opacity:0.9">
-    <form style="margin: auto;" class="form-inline .justify-content-center" action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <div id="newsletterBanner" class="border sticky-top nav mx-auto newsletter-banner">
+    <form class="overhead-centered-form form-inline .justify-content-center" action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
         <div class="form-group">
-          <div class="input-group input-group-sm">
-            <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control" placeholder="Join our Newsletter" aria-label="" aria-describedby="sizing-addon2">
+          <div class="input-group input-group custom-overhead">
+            <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control custom-overhead-input" placeholder="Join our Newsletter" aria-label="" aria-describedby="sizing-addon2">
+            <button type="submit" formaction=action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" class="btn btn-primary">Submit</button>
+
           </div>
         </div>
+
     </form>
   </div>
 
@@ -224,16 +192,7 @@
       ajaxify();
     });
   </script>
-  <!-- Lightbox Activation -->
-  <script src="{{ 'lightbox.js' | asset_url }}"></script>
 
-
-  <script>
-    lightbox.option({
-      'resizeDuration': 200,
-      'showImageNumberLabel': false
-    })
-</script>
 
 </body>
 </html>

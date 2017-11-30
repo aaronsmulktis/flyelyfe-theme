@@ -10,9 +10,17 @@
 /*================ SETTINGS ================*/
 @import url('settings/variables.scss.liquid');
 
+
 // Lightbox
 
-@import url('lightbox.css');
+// fancybox
+
+@import url('jquery.fancybox.css');
+@import url("jquery.fancybox-buttons.css");
+
+// Material
+
+
 
 // Tether
 
