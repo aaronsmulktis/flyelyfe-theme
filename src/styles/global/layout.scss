@@ -170,7 +170,7 @@ and (orientation : portrait) {
       & img {
         @extend .transition;
         margin: 0 auto;
-        height: auto;
+        height: auto !important;
         background: $color-white;
       }
     }
@@ -263,6 +263,9 @@ and (orientation : portrait) {
     height: 200px;
     overflow: hidden;
     display: block;
+    & img {
+      height: auto !important;
+    }
   }
 }
 
