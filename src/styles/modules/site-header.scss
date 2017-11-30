@@ -7,3 +7,28 @@
     width: 100%;
   }
 }
+
+.newsletter-banner {
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  display: none;
+  height: 50px;
+  background-color: #f5eaee;
+}
+
+.overhead-centered-form {
+  margin: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.custom-overhead {
+  padding: .5rem .75rem;
+}
+
+.custom-overhead-input {
+  line-height: 1.25;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: .25rem;
+}
