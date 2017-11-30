@@ -41,9 +41,7 @@
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
   <script>
-    $(document).ready(function () {
-      attachClickEvent();
-    });
+
 
     /* COOKIE CODE!
     jQuery(document).ready(function($) {
@@ -157,14 +155,15 @@
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
   <!--THIS IS THE TOP BAR FOR NEWSLETTER! -->
-  <div id="newsletterBanner" class="border sticky-top nav mx-auto" style="transition-timing-function: ease; transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); display: none; height: 50px; background-color: #f5eaee;">
-    <form style="margin: auto; position: relative; z-index: 10;" class="form-inline .justify-content-center" action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+  <div id="newsletterBanner" class="border sticky-top nav mx-auto newsletter-banner">
+    <form class="overhead-centered-form form-inline .justify-content-center" action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
         <div class="form-group">
-          <div class="input-group input-group" style="padding: .5rem .75rem;">
-            <input style="line-height: 1.25; background-clip: padding-box; border: 1px solid rgba(0,0,0,0.15); border-radius: .25rem;" type="text" id="mce-EMAIL" name="EMAIL" class="form-control" placeholder="Join our Newsletter" aria-label="" aria-describedby="sizing-addon2">
+          <div class="input-group input-group custom-overhead">
+            <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control custom-overhead-input" placeholder="Join our Newsletter" aria-label="" aria-describedby="sizing-addon2">
+            <button type="submit" formaction=action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" class="btn btn-primary">Submit</button>
+
           </div>
         </div>
-        <button type="submit" formaction=action="https://design.us16.list-manage.com/subscribe/post?u=8fa869de687bcd856de32cf8d&amp;id=7be70a3607" class="btn btn-primary">Submit</button>
 
     </form>
   </div>

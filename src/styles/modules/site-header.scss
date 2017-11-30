@@ -32,3 +32,36 @@
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: .25rem;
 }
+
+/*========== MOBILE MENU STYLES ========== */
+
+@media only screen and (max-width: 991px) {
+   .navbar-collapse {
+     padding-top: 1vw;
+   }
+
+   .navbar-collapse ul {
+     text-align: center;
+   }
+
+   form.search-form {
+     margin: auto !important;
+   }
+
+   .mobile-cart {
+     margin: auto;
+     display: inline !important;
+     margin-right: 51% !important;
+     padding: 0px !important;
+     padding-top: 3px !important;
+   }
+
+   .cart {
+     display: none !important;
+   }
+
+   .search-form-control {
+     width: 45vw;
+     height: 6vh;
+   }
+ }
