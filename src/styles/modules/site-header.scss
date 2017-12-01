@@ -16,6 +16,12 @@
   background-color: #f5eaee;
 }
 
+.newsletter-banner-image {
+  width: 54px;
+  margin-left: 0px;
+
+}
+
 .overhead-centered-form {
   margin: auto;
   position: relative;
@@ -39,9 +45,13 @@
 
 /*========== MOBILE MENU STYLES ========== */
 
-@media only screen and (max-width: 550px) {
-
+@media only screen and (max-width: 580px) {
+  .newsletter-banner-image {
+    display: none;
+  }
 }
+
+
 
 @media only screen and (max-width: 991px) {
    .navbar-collapse {
