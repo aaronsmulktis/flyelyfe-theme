@@ -58,6 +58,16 @@
 
 <!-- TODO -- add new cart that shows below elems, hide current one -->
   <div class="navbar navbar-fixed-top navbar-toggleable-md" role="navigation">
+    <!-- Mobile Cart Next to Mobile Menu -->
+    <!-- Hide Show Class: mobile-cart-upper -->
+    <a style="display: none;" class="mobile-cart-upper p-2 cart-link" href="/cart">
+      <i class="btb bt-shopping-cart"></i>
+      {% if cart.item_count != 0 %}
+        <span class="badge badge-primary">
+          {{ cart.item_count }}
+        </span>
+      {% endif %}
+    </a>
     <button id="collapseIcon" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse">
       <!-- <span class="navbar-toggler-icon"></span> -->
       <i class="btb bt-bars"></i>
