@@ -33,7 +33,15 @@
   border-radius: .25rem;
 }
 
+#collapseIcon:focus {
+  outline: none;
+}
+
 /*========== MOBILE MENU STYLES ========== */
+
+@media only screen and (max-width: 550px) {
+
+}
 
 @media only screen and (max-width: 991px) {
    .navbar-collapse {
@@ -45,26 +53,39 @@
      margin-right: -13px !important;
    }
 
-   form.search-form {
-     margin: 0px !important;
+
+
+   .mobile-menu {
      text-align: right !important;
-     margin-right: 5px !important;
+     margin-bottom: -35px !important;
+
    }
+
+   .navbar-brand {
+     top: -30px !important;
+
+   }
+
+   .align-with-logo {
+     margin-top: 55px !important;
+     z-index: 10;
+  }
 
    .mobile-cart {
      margin: 0px !important;
-     text-align: right !important;
      margin-right: 16px !important;
+     display: inline-block !important;
+     padding-top: 5px !important;
      display: inline !important;
-     padding: 0px !important;
-     padding-top: 3px !important;
+     margin-top: 5px !important;
+
    }
 
    .mobile-cart-upper {
-     display: inline !important;
-     text-align: right !important;
      margin-right: 30px !important;
-     padding-top: 5px !important;
+     padding-top: 1px !important;
+     display: inline-block !important;
+     margin-top: 5px !important;
 
    }
 
@@ -72,7 +93,9 @@
      display: none !important;
    }
 
-   .search-form-control {
-     height: 40px;
+   .search-form {
+     margin-bottom: 21px !important;
+     margin-top: 0px !important;
    }
+
  }

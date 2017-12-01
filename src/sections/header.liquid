@@ -57,11 +57,11 @@
   </header> -->
 
 <!-- TODO -- add new cart that shows below elems, hide current one -->
-  <div class="navbar navbar-fixed-top navbar-toggleable-md" role="navigation">
+  <div class="mobile-menu navbar navbar-fixed-top navbar-toggleable-md" role="navigation">
     <!-- Mobile Cart Next to Mobile Menu -->
     <!-- Hide Show Class: mobile-cart-upper -->
-    <a style="display: none;" class="mobile-cart-upper p-2 cart-link" href="/cart">
-      <i class="btb bt-shopping-cart"></i>
+    <a style="display: none;" class="mobile-menu mobile-cart-upper p-2 cart-link" href="/cart">
+      <i class="align-with-logo btb bt-shopping-cart"></i>
       {% if cart.item_count != 0 %}
         <span class="badge badge-primary">
           {{ cart.item_count }}
@@ -70,7 +70,7 @@
     </a>
     <button id="collapseIcon" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse">
       <!-- <span class="navbar-toggler-icon"></span> -->
-      <i class="btb bt-bars"></i>
+      <i class="align-with-logo btb bt-bars"></i>
 
     </button>
     <script>
@@ -132,7 +132,7 @@
           {% endif %}
         {% endfor %}
         <!-- Mobile Cart -->
-        <li style="display: none;"  class="mobile-cart nav-item cart-link">
+        <li style="display: none;"  class="mobile-menu mobile-cart nav-item cart-link">
           <a class="p-2" href="/cart">Cart</a>
         </li>
         <!-- End Mobile Cart -->
@@ -147,22 +147,25 @@
             </span>
           {% endif %}
         </a>
+
         <!-- End Desktop Cart Icon -->
         <!-- Search Bar -->
         <form class="p-2 form-inline my-2 my-lg-0 search-form" action="/search" method="get" role="search">
-          <label for="Search" class="label-hidden">
+          <span><label for="Search" class="label-hidden">
             {{ 'general.search.placeholder' | t }}
           </label>
-          <input class="search-form-control form-control mr-sm-2 form-search"
+          <input class="search-form-control search-form form-control mr-sm-2"
                  type="search"
                  name="q"
                  id="Search"
                  value="{{ search.terms | escape }}"
                  placeholder="{{ 'general.search.placeholder' | t }}">
-          <button type="submit" class="btn btn-outline-success my-2 my-sm-0">
+          <span>&nbsp;</span>
+          <button type="submit" class="search-form btn btn-outline-success my-2 my-sm-0">
             {% include 'icon-search' %}
             <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
           </button>
+        </span>
         </form>
         <!-- End Search Bar -->
       </div>
