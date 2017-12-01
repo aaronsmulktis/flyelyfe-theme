@@ -36,7 +36,7 @@
   line-height: 1.25;
   background-clip: padding-box;
   border: 1px solid rgba(0,0,0,0.15);
-  border-radius: .25rem;
+  border-radius: .25rem !important;
 }
 
 #collapseIcon:focus {
@@ -62,8 +62,6 @@
      text-align: right !important;
      margin-right: -13px !important;
    }
-
-
 
    .mobile-menu {
      text-align: right !important;
