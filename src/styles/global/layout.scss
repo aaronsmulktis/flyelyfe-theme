@@ -32,7 +32,7 @@ a:active {color: $color-primary;}
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  @extend .font1;
+  @extend .font2;
 }
 
 .btn-primary {
@@ -44,6 +44,11 @@ a:active {color: $color-primary;}
   background-color: $color-tertiary;
 }
 
+.btn-primary:focus {
+  background-color: $color-primary;
+  border: darken($color-primary, 15%);
+}
+
 .btn-outline-success {
   color: $color-primary;
   background-image: none;
@@ -53,6 +58,16 @@ a:active {color: $color-primary;}
 .btn-outline-success:hover {
   background-color: $color-primary;
   border-color: darken($color-primary, 15%);
+}
+
+.btn-outline-success:active {
+  background-color: $color-primary;
+  border-color: lighten($color-primary, 10%);
+}
+
+.btn-outline-success:focus {
+  background-color: $color-primary;
+  border-color: lighten($color-primary, 10%);
 }
 
 // Navbar
@@ -106,6 +121,7 @@ input#Search, input#mce-EMAIL {
 
 #MainContent {
   padding-top: 15px;
+  padding-bottom: 15px;
   background-color: $color-white;
 }
 
@@ -122,6 +138,8 @@ input#Search, input#mce-EMAIL {
 .slick-slide img,
 .slick-slide .slick-active,
 .slick-slide .slick-current {outline: none}
+
+.product-images .slick-slide {height: auto;}
 
 .product-image-thumbnails {margin: 0 3px;}
 
@@ -198,12 +216,28 @@ input#Search, input#mce-EMAIL {
   }
 }
 
+// Pagination
 .page-link {color: $color-dark;}
 .page-link:hover {color: $color-dark;}
 .page-item.active .page-link {
   background-color: $color-primary;
   border-color: $color-primary;
 }
+.page-link:focus, .page-link:hover {
+  color: $color-primary
+}
+
+.page-item:first-child .page-link {
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+.page-item:last-child .page-link {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+// Product Grid / Lists
 
 .reveal .hidden { display: block !important; visibility: visible !important;}
 .product:hover .reveal img { opacity: 1; }
