@@ -103,7 +103,9 @@
       }
       let banner = $('#newsletterBanner');
       if (!banner.is(":visible")) {
-        banner.show();
+        banner.slideDown('fast', function() {
+
+        });
       }
     }
 
@@ -111,7 +113,7 @@
       let banner = $('#newsletterBanner');
 
       if (banner.is(":visible")) {
-        banner.hide();
+        banner.slideUp('fast');
       }
     }
 
@@ -122,9 +124,9 @@
        if ($(document).scrollTop() > modalRelease) {
          setTimeout(showModalIfHidden, 3000);
        }
-       if ($(document).scrollTop() > 300) {
+       if ($(document).scrollTop() > 400) {
          showBannerIfHidden();
-       } else if ($(document).scrollTop() < 200) {
+       } else if ($(document).scrollTop() < 300) {
          hideBannerIfShown();
        }
      });
