@@ -55,40 +55,7 @@
     {% endif %}
 
   </header> -->
-  <style>
-  @media only screen and (max-width: 991px) {
-     .navbar-collapse {
-       padding-top: 1vw;
-     }
 
-     .navbar-collapse ul {
-       text-align: center;
-     }
-
-     form.search-form {
-       margin: auto !important;
-     }
-
-     .mobile-cart {
-       margin: auto;
-       display: inline !important;
-       margin-right: 51% !important;
-       padding: 0px !important;
-       padding-top: 3px !important;
-     }
-
-     .cart {
-       display: none !important;
-     }
-
-     .search-form-control {
-       width: 45vw;
-       height: 6vh;
-     }
-   }
-
-
-  </style>
 <!-- TODO -- add new cart that shows below elems, hide current one -->
   <div class="navbar navbar-fixed-top navbar-toggleable-md" role="navigation">
     <button id="collapseIcon" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse">
@@ -154,21 +121,14 @@
             </li>
           {% endif %}
         {% endfor %}
+        <!-- Mobile Cart -->
         <li style="display: none;"  class="mobile-cart nav-item cart-link">
-          <a class="p-2" href="/cart">
-            <i class="btb bt-shopping-cart"></i>
-            {% if cart.item_count != 0 %}
-              <span class="badge badge-primary">
-                {{ cart.item_count }}
-              </span>
-            {% endif %}
-            <!-- {% include 'icon-cart' %} -->
-            <!-- {{ 'layout.cart.title' | t }} -->
-            <!-- ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }}) -->
-          </a>
+          <a class="p-2" href="/cart">Cart</a>
         </li>
+        <!-- End Mobile Cart -->
       </ul>
       <div class="d-flex flex-row-reverse">
+        <!-- Desktop Cart Icon -->
         <a class="cart p-2 cart-link" href="/cart">
           <i class="btb bt-shopping-cart"></i>
           {% if cart.item_count != 0 %}
@@ -176,10 +136,9 @@
               {{ cart.item_count }}
             </span>
           {% endif %}
-          <!-- {% include 'icon-cart' %} -->
-          <!-- {{ 'layout.cart.title' | t }} -->
-          <!-- ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }}) -->
         </a>
+        <!-- End Desktop Cart Icon -->
+        <!-- Search Bar -->
         <form class="p-2 form-inline my-2 my-lg-0 search-form" action="/search" method="get" role="search">
           <label for="Search" class="label-hidden">
             {{ 'general.search.placeholder' | t }}
@@ -195,6 +154,7 @@
             <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
           </button>
         </form>
+        <!-- End Search Bar -->
       </div>
     </div>
   </div>

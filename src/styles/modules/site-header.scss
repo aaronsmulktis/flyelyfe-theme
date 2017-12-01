@@ -41,17 +41,21 @@
    }
 
    .navbar-collapse ul {
-     text-align: center;
+     text-align: right !important;
+     margin-right: -13px !important;
    }
 
    form.search-form {
-     margin: auto !important;
+     margin: 0px !important;
+     text-align: right !important;
+     margin-right: 5px !important;
    }
 
    .mobile-cart {
-     margin: auto;
+     margin: 0px !important;
+     text-align: right !important;
+     margin-right: 16px !important;
      display: inline !important;
-     margin-right: 51% !important;
      padding: 0px !important;
      padding-top: 3px !important;
    }
@@ -61,7 +65,6 @@
    }
 
    .search-form-control {
-     width: 45vw;
-     height: 6vh;
+     height: 40px;
    }
  }

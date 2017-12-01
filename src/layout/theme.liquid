@@ -109,6 +109,7 @@
 
     var hideBannerIfShown = function() {
       let banner = $('#newsletterBanner');
+
       if (banner.is(":visible")) {
         banner.hide();
       }
@@ -175,6 +176,10 @@
   <main role="main" id="MainContent" class="container">
     {{ content_for_layout }}
   </main>
+
+  {% if %}
+
+  </template>%}
 
   {% section 'footer' %}
 
