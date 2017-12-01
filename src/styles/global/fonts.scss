@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Londrina+Outline|Londrina+Shadow|Londrina+Solid:900|Anonymous+Pro:400,700');
 
+@font-face {
+    font-family: 'hella_vettica';
+    src: url('hella_vettica.eot');
+    src: url('hella_vettica.eot?#iefix') format('embedded-opentype'),
+         url('hella_vettica.woff2') format('woff2'),
+         url('hella_vettica.woff') format('woff'),
+         url('hella_vettica.ttf') format('truetype'),
+         url('hella_vettica.svg#hella_vetticamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.font1 {
+	font-family: 'hella_vettica', cursive;
+}
+
+.font2 {
+	font-family: 'Anonymous Pro', sans-serif;
+}
+
 .londrina {
 	font-family: 'Londrina Solid', cursive;
 }
@@ -14,8 +35,4 @@
 
 .londrina-sketch {
 	font-family: 'Londrina Sketch', cursive;
-}
-
-.anonymous {
-	font-family: 'Anonymous Pro', sans-serif;
 }

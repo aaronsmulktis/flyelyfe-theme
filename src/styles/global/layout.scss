@@ -3,7 +3,7 @@ body,
 html {
   width: 100%;
   background-color: desaturate(lighten($color-primary, 44%), 66%);
-  @extend .anonymous;
+  @extend .font2;
 }
 
 h1 {font-size: 3rem;}
@@ -14,7 +14,7 @@ h5 {font-size: 1.2rem;}
 h6 {font-size: 1rem;}
 
 h1,h2,h3,h4,h5,h6 {
-	@extend .londrina;
+	@extend .font1;
 }
 
 /*================ Links & Buttons ================*/
@@ -32,7 +32,7 @@ a:active {color: $color-primary;}
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  @extend .londrina;
+  @extend .font2;
 }
 
 .btn-primary {
@@ -44,6 +44,11 @@ a:active {color: $color-primary;}
   background-color: $color-tertiary;
 }
 
+.btn-primary:focus {
+  background-color: $color-primary;
+  border: darken($color-primary, 15%);
+}
+
 .btn-outline-success {
   color: $color-primary;
   background-image: none;
@@ -53,6 +58,16 @@ a:active {color: $color-primary;}
 .btn-outline-success:hover {
   background-color: $color-primary;
   border-color: darken($color-primary, 15%);
+}
+
+.btn-outline-success:active {
+  background-color: $color-primary;
+  border-color: lighten($color-primary, 10%);
+}
+
+.btn-outline-success:focus {
+  background-color: $color-primary;
+  border-color: lighten($color-primary, 10%);
 }
 
 // Navbar
@@ -83,6 +98,10 @@ and (orientation : portrait) {
   .navbar ul li {padding: 0px;}
 }
 
+input#Search, input#mce-EMAIL {
+  @extend .font2;
+}
+
 .cart-link {padding-top: 15px !important;}
 
 .form-control:focus {
@@ -102,6 +121,7 @@ and (orientation : portrait) {
 
 #MainContent {
   padding-top: 15px;
+  padding-bottom: 15px;
   background-color: $color-white;
 }
 
@@ -110,14 +130,16 @@ and (orientation : portrait) {
 .jumbotron {padding: 0; margin: 0;}
 
 .slick-slider .slick-track,
-.slick-slider .slick-list {height: 320px}
+.featured-slider .slick-slider .slick-list {height: 320px}
 
-.slick-slide {padding: 0 40px;}
+.featured-slider .slick-slide {padding: 0 40px;}
 
 .slick-slide,
 .slick-slide img,
 .slick-slide .slick-active,
 .slick-slide .slick-current {outline: none}
+
+.product-images .slick-slide {height: auto;}
 
 .product-image-thumbnails {margin: 0 3px;}
 
@@ -170,7 +192,7 @@ and (orientation : portrait) {
       & img {
         @extend .transition;
         margin: 0 auto;
-        height: auto;
+        height: auto !important;
         background: $color-white;
       }
     }
@@ -194,12 +216,28 @@ and (orientation : portrait) {
   }
 }
 
+// Pagination
 .page-link {color: $color-dark;}
 .page-link:hover {color: $color-dark;}
 .page-item.active .page-link {
   background-color: $color-primary;
   border-color: $color-primary;
 }
+.page-link:focus, .page-link:hover {
+  color: $color-primary
+}
+
+.page-item:first-child .page-link {
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+.page-item:last-child .page-link {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+// Product Grid / Lists
 
 .reveal .hidden { display: block !important; visibility: visible !important;}
 .product:hover .reveal img { opacity: 1; }
@@ -263,6 +301,9 @@ and (orientation : portrait) {
     height: 200px;
     overflow: hidden;
     display: block;
+    & img {
+      height: auto !important;
+    }
   }
 }
 

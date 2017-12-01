@@ -98,7 +98,7 @@
     {% endif %}
 
     <p>{{ 'cart.general.subtotal' | t }}</p>
-    <p>{{ cart.total_price | money }}</p>
+    <h4>{{ cart.total_price | money }}</h4>
     {% if cart.total_discounts > 0 %}
       <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
     {% endif %}
@@ -127,3 +127,5 @@
     <p>{{ 'cart.general.cookies_required' | t }}</p>
   </div>
 {% endif %}
+
+<div class="container spacer40"></div>

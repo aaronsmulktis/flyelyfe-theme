@@ -40,8 +40,8 @@
     "search": {
       "no_results_html": "We got nothing on \"{{ terms }}\".",
       "results_for_html": "Gear for \"{{ terms }}\":",
-      "title": "Search for products on our site",
-      "placeholder": "Search...",
+      "title": "Search for some gear!",
+      "placeholder": "Style, color, etc..",
       "submit": "Search"
     }
   },
@@ -239,7 +239,7 @@
     },
     "footer": {
       "social_platform": "{{ name }} on {{ platform }}",
-      "copyright": "Copyright",
+      "copyright": "copyright",
       "payment_methods": "Payment methods accepted"
     }
   },

@@ -1,3 +1,5 @@
+
+
 {% paginate search.results by 10 %}
 
   <h1>
@@ -12,66 +14,73 @@
     {% endif %}
   </h1>
 
-  <form action="/search" method="get" role="search">
+  <form class="form-inline" action="/search" method="get" role="search">
     <label for="Search" class="label-hidden">
       {{ 'general.search.placeholder' | t }}
     </label>
     <input type="search"
+           class="form-control" 
            name="q"
            id="Search"
            value="{{ search.terms | escape }}"
            placeholder="{{ 'general.search.placeholder' | t }}">
-    <button type="submit" class="btn">
+    <button type="submit" class="btn btn-outline-success">
       {% include 'icon-search' %}
       <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
     </button>
+    <div class="container spacer20"></div>
   </form>
 
 
 {% if search.performed %}
-    <ul>
+    <div class="EndlessScroll row">
       {% for item in search.results %}
-        <li>
-          {% assign featured_image = item.image | default: item.featured_image %}
-          {% if featured_image != blank %}
-            <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-              {{ featured_image | img_url: '240x240' | img_tag: featured_image.alt }}
-            </a>
-          {% endif %}
+        <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
+          <a href="{{ item.url | within: collection }}">
+            {% if item.featured_image != blank %}
+              <div class="reveal product-image">
+                {{ item.featured_image.src | img_url: '480x480' | img_tag: item.title }}
+                <img class="hidden" src="{{ item.images[1] | product_img_url: 'large' }}" alt="{{ item.images[1].alt | escape }}" />
+              </div>
+            {% endif %}
 
-          <h5>{{ item.title | link_to: item.url }}</h5>
+            <h4>{{ item.title }}</h4>
 
-          {% if item.object_type == 'product' %}
             <p>
               {% if item.compare_at_price > item.price %}
+
                 {% if item.price_varies %}
-                  {% assign sale_price = item.price | money %}
-                  {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                  {%- assign sale_price = item.price | money -%}
+                  {{ 'products.item.on_sale_from_html' | t: price: sale_price }}
                 {% else %}
-                  {{ 'products.product.on_sale' | t }}
-                  <span itemprop="price">{{ item.price | money }}</span>
+                  {{ 'products.item.on_sale' | t }}
+                  {{ item.price | money }}
                 {% endif %}
-                <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-                <s>{{ item.compare_at_price | money }}</s>
+
               {% else %}
+
                 {% if item.price_varies %}
-                  {% assign price = item.price | money %}
-                  <span itemprop="price">{{ 'products.product.from_text_html' | t: price: price }}</span>
+                  {%- assign price = item.price | money -%}
+                  {{ 'products.item.from_text_html' | t: price: price }}
                 {% else %}
-                  <span itemprop="price">{{ item.price | money }}</span>
+                  {{ item.price | money }}
                 {% endif %}
+
               {% endif %}
+
+              {% if item.compare_at_price > item.price %}
+                <span class="visually-hidden">{{ 'products.item.regular_price' | t }}</span>
+                <s>{{ item.compare_at_price | money }}</s>
+              {% endif %}
+
               {% unless item.available %}
-              {{ 'products.product.sold_out' | t }}
+                {{ 'products.item.sold_out' | t }}
               {% endunless %}
             </p>
-          {% else %}
-            <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
-          {% endif %}
-
-        </li>
+          </a>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
 
     {% if paginate.pages > 1 %}
       {% include 'pagination' %}

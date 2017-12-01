@@ -2,13 +2,15 @@
   {{ paginate | default_pagination }}
 </div> -->
 
-<nav class="d-flex justify-content-center" aria-label="Page navigation example">
-    <ul class="pagination">
+<div class="spacer40"></div>
+
+<nav class="d-flex" aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
       <li class="page-item">
         {% if paginate.previous %}
-          <a class="page-link" href="{{ paginate.previous.url }}" rel="previous">Next</a>
+          <a class="page-link" href="{{ paginate.previous.url }}" rel="previous"><i class="btb bt-arrow-left"></i></a>
         {% else %}
-          <a class="page-link disabled" href="#" rel="previous">Previous</a>
+          <a class="page-link disabled" href="#" rel="previous"><i class="btb bt-arrow-left"></i></a>
         {% endif %}
       </li>
 
@@ -28,10 +30,12 @@
 
       <li class="page-item">
         {% if paginate.next %}
-          <a class="page-link" href="{{ paginate.next.url }}" rel="next">Next</a>
+          <a class="page-link" href="{{ paginate.next.url }}" rel="next"><i class="btb bt-arrow-right"></i></a>
         {% else %}
-          <a class="page-link disabled" href="#" rel="next">Next</a>
+          <a class="page-link disabled" href="#" rel="next"><i class="btb bt-arrow-right"></i></a>
         {% endif %}
       </li>
     </ul>
 </nav>
+
+<div class="spacer40"></div>
