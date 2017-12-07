@@ -23,6 +23,10 @@ window.theme = window.theme || {};
 
 $(document).ready(function() {
 
+  $('.navbar-brand').on('mouseover mouseout touchstart touchstop', function() {
+    $('#gumbit').toggleClass('popped');
+  })
+
   $('.featured-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
