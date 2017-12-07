@@ -92,6 +92,12 @@ $(document).ready(function() {
     }]
   });
 
+  // Interactions
+
+  $('.newsletter-banner-image').on('click touchstart', function() {
+    $("html, body").animate({scrollTop: 0}, 'fast');
+    return false;
+  });
 
   // Defaults
 

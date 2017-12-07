@@ -98,9 +98,9 @@
     }
 
     var showBannerIfHidden = function() {
-      if (window.location.href.split('/').length > 4) {
-          return;
-      }
+      // if (window.location.href.split('/').length > 4) {
+      //     return;
+      // }
       let banner = $('#newsletterBanner');
       if (!banner.is(":visible")) {
         banner.slideDown('fast', function() {
@@ -161,13 +161,12 @@
   <div id="newsletterBanner" class="border sticky-top nav mx-auto newsletter-banner">
     <div class="overhead-centered-form">
     </div>
-    <form class="overhead-centered-form form-inline .justify-content-center" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+    <form class="overhead-centered-form form-inline justify-content-center" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
         <div class="form-group">
           <img class="newsletter-banner-image" src="{{ 'gumbit.svg' | asset_url }}"/>
           <div class="input-group input-group custom-overhead">
-            <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control custom-overhead-input" placeholder="Join our Newsletter" aria-label="" aria-describedby="sizing-addon2">
+            <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control custom-overhead-input" placeholder="Get Emails!" aria-label="" aria-describedby="sizing-addon2">&nbsp;
             <button type="submit" formaction=action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" class="btn btn-primary">Submit</button>
-
           </div>
         </div>
 
@@ -181,10 +180,6 @@
   <main role="main" id="MainContent" class="container">
     {{ content_for_layout }}
   </main>
-
-
-
-  </template>%}
 
   {% section 'footer' %}
 

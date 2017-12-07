@@ -13,8 +13,13 @@ h4 {font-size: 1.5rem;}
 h5 {font-size: 1.2rem;}
 h6 {font-size: 1rem;}
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2 {
 	@extend .font1;
+}
+
+h3,h4,h5,h6 {
+  @extend .font3;
+  font-weight: 700
 }
 
 /*================ Links & Buttons ================*/
@@ -70,54 +75,7 @@ a:active {color: $color-primary;}
   border-color: lighten($color-primary, 10%);
 }
 
-// Navbar
-
-.navbar-brand {
-  width: 120px;
-  position: relative;
-  top: -10px;
-  margin-bottom: -100px;
-  z-index: 1;
-}
-
-.navbar-brand:hover {
-  @extend .wiggle;
-}
-
-.navbar ul li {
-	& a {color: $color-black; font-weight: bold}
-  & a:hover {color: $color-primary; font-weight: bold}
-	margin-right: 1.5em;
-  padding: 15px 0px;
-}
-
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px)
-and (orientation : portrait) {
-  .navbar ul li {padding: 0px;}
-}
-
-input#Search, input#mce-EMAIL {
-  @extend .font2;
-}
-
-.cart-link {padding-top: 15px !important;}
-
-.form-control:focus {
-  border-color: $color-primary;
-}
-
-.badge-primary {
-  border-radius: 50%;
-  background-color: $color-primary;
-  width: 14px;
-  height: 13px;
-  font-size: 8px;
-  position: relative;
-  top: -12px;
-  left: -14px;
-}
+// Global Container
 
 #MainContent {
   padding-top: 15px;
@@ -138,11 +96,12 @@ input#Search, input#mce-EMAIL {
   }
   & .featured-slide {
     & h1 {
+      color: lighten($color-secondary, 36%);
       position: absolute;
       z-index: 1;
       margin-top: 15px;
       margin-left: 60px;
-      text-shadow: 1px 1px 0px $color-primary;
+      text-shadow: 2px 2px 0px $color-primary;
     }
     & p {
       position: absolute;
@@ -161,6 +120,13 @@ input#Search, input#mce-EMAIL {
       height: 320px;
     }
   }
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+  .featured-slide h1 {font-size: 2rem;}
 }
 
 .slick-slide,
@@ -193,19 +159,13 @@ input#Search, input#mce-EMAIL {
 // Featured Collection
 .featured-products-slider {
   width: 100%;
-  // white-space: nowrap !important;
   font-size: 0;
   padding: 10px 10px 20px 10px;
-  // position: relative;
-  // overflow: auto;
-  // -webkit-overflow-scrolling: touch;
-
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-
   background-attachment: local, local, scroll, scroll;
   // Attempt to add inner shadow to appear as drawer
   background:
@@ -232,17 +192,28 @@ input#Search, input#mce-EMAIL {
     background-size: cover;
     white-space: normal !important;
     font-size: 12px;
-    // vertical-align: top;
-    // position: relative;
-    // transform: translateZ(0);
-    // -webkit-transform: translateZ(0);
-    // -webkit-transform: translate3d(0,0,0);
+    
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-transform: translate3d(0,0,0);
+    
     flex: 0 0 auto;
     display: flex;
     flex-wrap: nowrap;
     width: 220px;
     height: 220px;
     overflow: hidden;
+  }
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+  .product-snippet {
+    & .product-image {
+      height: auto !important;
+    }
   }
 }
 
