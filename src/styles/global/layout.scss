@@ -125,14 +125,43 @@ input#Search, input#mce-EMAIL {
   background-color: $color-white;
 }
 
-// Slider
+// Main Slider
 
 .jumbotron {padding: 0; margin: 0;}
 
 .slick-slider .slick-track,
 .featured-slider .slick-slider .slick-list {height: 320px}
 
-.featured-slider .slick-slide {padding: 0 40px;}
+.featured-slider {
+  & .slick-slide {
+    padding: 0;
+  }
+  & .featured-slide {
+    & h1 {
+      position: absolute;
+      z-index: 1;
+      margin-top: 15px;
+      margin-left: 60px;
+      text-shadow: 1px 1px 0px $color-primary;
+    }
+    & p {
+      position: absolute;
+      z-index: 1;
+      width: 320px;
+      top: 75px;
+      margin-left: 60px;
+      padding: 5px 10px;
+      background: rgba($color-white, 0.5);
+    }
+    & .slide-background {
+      background-size: cover;
+      background-position: center center;
+      position: relative;
+      top: 0;
+      height: 320px;
+    }
+  }
+}
 
 .slick-slide,
 .slick-slide img,
@@ -158,8 +187,8 @@ input#Search, input#mce-EMAIL {
 .slick-arrow:hover {
   background: $color-primary;
 }
-.slick-next {right: 10px;}
-.slick-prev {left: 10px;}
+.slick-next {right: 15px;}
+.slick-prev {left: 15px; z-index: 1}
 
 // Featured Collection
 .featured-products-slider {
@@ -178,6 +207,7 @@ input#Search, input#mce-EMAIL {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 
   background-attachment: local, local, scroll, scroll;
+  // Attempt to add inner shadow to appear as drawer
   background:
     linear-gradient(to right, $color-white 20%, $color-transparent),
     linear-gradient(to right, $color-transparent, $color-white 80%) 0 100%,

@@ -1,0 +1,59 @@
+<div class="featured-slide">
+  {% for block in section.blocks %}
+    {% case block.type %}
+    {% when 'background' %}
+      <div class="slide-background" style="background-image: url('{{ block.settings.background | img_url: '1024x' }}');"></div>
+    {% when 'headline' %}
+      <h1>{{ block.settings.headline }}</h1>
+    {% when 'description' %}
+      <p>{{ block.settings.description }}</p>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Featured Slide 1",
+    "settings": [{
+      "type": "text",
+      "id": "slide-1",
+      "label": "Featured Slide 1"
+    }],
+    "blocks": [
+      {
+        "type": "headline",
+        "name": "Headline",
+        "settings": [{
+          "id": "headline",
+          "label": "Headline",
+          "type": "text"
+        }]
+      },
+      {
+        "type": "description",
+        "name": "description",
+        "settings": [{
+          "id": "description",
+          "label": "Description",
+          "type": "textarea"
+        }]
+      },
+      {
+        "type": "background",
+        "name": "Background",
+        "settings": [{
+          "id": "background",
+          "label": "Slide Background",
+          "type": "image_picker"
+        }]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Slide 1",
+        "category": "Slider"
+      }
+    ]
+  }
+
+{% endschema %}
