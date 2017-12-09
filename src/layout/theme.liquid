@@ -42,50 +42,44 @@
 
   <script>
 
-
-    /* COOKIE CODE!
-    jQuery(document).ready(function($) {
-  "use strict";
-
-  // Create cookie
-  function createCookie(name, value, days) {
-      var expires;
-      if (days) {
-          var date = new Date();
-          date.setTime(date.getTime()+(days*24*60*60*1000));
-          expires = "; expires="+date.toGMTString();
-      }
-      else {
-          expires = "";
-      }
-      document.cookie = name+"="+value+expires+"; path=/";
-  }
-
-  // Read cookie
-  function readCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0;i < ca.length;i++) {
-          var c = ca[i];
-          while (c.charAt(0) === ' ') {
-              c = c.substring(1,c.length);
-          }
-          if (c.indexOf(nameEQ) === 0) {
-              return c.substring(nameEQ.length,c.length);
-          }
-      }
-      return null;
-  }
-
-  function loadNewsletter() {
-    // only on mobile
-    if (readCookie("newsletter")) {
-      return;
-    } else {
-      $('#email-signup').delay(6000).css({'display' : 'flex'});
+    // Create cookie
+    function createCookie(name, value, days) {
+        var expires;
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            expires = "; expires="+date.toGMTString();
+        }
+        else {
+            expires = "";
+        }
+        document.cookie = name+"="+value+expires+"; path=/";
     }
-  }
-    */
+
+    // Read cookie
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1,c.length);
+            }
+            if (c.indexOf(nameEQ) === 0) {
+                return c.substring(nameEQ.length,c.length);
+            }
+        }
+        return null;
+    }
+
+    function loadNewsletter() {
+      // only on mobile
+      if (readCookie("newsletter")) {
+        return;
+      } else {
+        showBannerIfHidden();
+      }
+    }
 
     var showModalIfHidden = function() {
       var modal = $('#emailModal');
@@ -97,7 +91,7 @@
       }
     }
 
-    var showBannerIfHidden = function() {
+    function showBannerIfHidden() {
       // if (window.location.href.split('/').length > 4) {
       //     return;
       // }
@@ -109,7 +103,7 @@
       // }
     }
 
-    var hideBannerIfShown = function() {
+    function hideBannerIfShown() {
       let banner = $('#newsletterBanner');
 
       // if (banner.is(":visible")) {
@@ -119,29 +113,44 @@
       // }
     }
 
-    var closeBanner = function() {
+    function closeBanner() {
       let banner = $('#newsletterBanner');
       banner.css('top', '-56px');
       banner.hide();
+      createCookie("newsletter", "read", 2);
     }
 
-    $('#closeBanner').on('click touchstart', function() {
+    $('#closeBanner').on('touchstart', function(e) {
+      e.preventDefault();
       closeBanner();
     });
 
-    // OnScroll Handles
+    $('#newsletterSubmit').on('click touchstart', function(e) {
+      e.preventDefault();
+      createCookie("newsletter", "read", 999);
+    })
+
     $(window).scroll(function() {
-        // TODO put the modal release point to a reasonable spot on page
-      // let modalRelease = 1000000000;
-      //  if ($(document).scrollTop() > modalRelease) {
-      //    setTimeout(showModalIfHidden, 3000);
-      //  }
       if ($(document).scrollTop() > 200) {
-        showBannerIfHidden();
+        setTimeout(loadNewsletter(), 3000);
       } else if ($(document).scrollTop() < 300) {
         hideBannerIfShown();
       }
-     });
+    })
+
+    // OnScroll Handles
+    // $(window).scroll(function() {
+    //     // TODO put the modal release point to a reasonable spot on page
+    //   // let modalRelease = 1000000000;
+    //   //  if ($(document).scrollTop() > modalRelease) {
+    //   //    setTimeout(showModalIfHidden, 3000);
+    //   //  }
+    //   if ($(document).scrollTop() > 200) {
+    //     showBannerIfHidden();
+    //   } else if ($(document).scrollTop() < 300) {
+    //     hideBannerIfShown();
+    //   }
+    //  });
 
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
@@ -178,12 +187,12 @@
           </div>
           <div class="nav-item input-group input-group custom-overhead">
             <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control custom-overhead-input" placeholder="Get Emails!" aria-label="" aria-describedby="sizing-addon2">&nbsp;
-            <button type="submit" formaction=action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" class="btn btn-primary">Join</button>
+            <button id="newsletterSubmit" type="submit" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" class="btn btn-primary">Join</button>
           </div>
         </div>
     </form>
     <div class="p-3">
-      <a href="javascript:;" id="closeBanner"><i class="btb bt-times"></i></a>
+      <a href="javascript:closeBanner();" id="closeBanner"><i class="btb bt-times"></i></a>
     </div>
   </div>
 

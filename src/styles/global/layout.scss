@@ -135,7 +135,13 @@ and (orientation : portrait) {
 and (min-device-width : 375px)
 and (max-device-width : 667px)
 and (orientation : portrait) {
-  .featured-slide h1 {font-size: 2rem;}
+  .featured-slider .featured-slide h1 {
+    font-size: 2rem;
+    bottom: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 90vw;
+  }
 }
 
 .slick-slide,
