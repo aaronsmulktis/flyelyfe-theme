@@ -102,33 +102,45 @@
       //     return;
       // }
       let banner = $('#newsletterBanner');
-      if (!banner.is(":visible")) {
-        banner.slideDown('fast', function() {
-
-        });
-      }
+      // if (!banner.is(":visible")) {
+        // banner.animate({top: '-50'}, 500, function() {});
+        banner.show();
+        banner.css('top', '0px');
+      // }
     }
 
     var hideBannerIfShown = function() {
       let banner = $('#newsletterBanner');
 
-      if (banner.is(":visible")) {
-        banner.slideUp('fast');
-      }
+      // if (banner.is(":visible")) {
+        // banner.animate({top: '0'}, 500, function() {});        
+        banner.css('top', '-56px');
+        banner.hide();
+      // }
     }
+
+    var closeBanner = function() {
+      let banner = $('#newsletterBanner');
+      banner.css('top', '-56px');
+      banner.hide();
+    }
+
+    $('#closeBanner').on('click touchstart', function() {
+      closeBanner();
+    });
 
     // OnScroll Handles
     $(window).scroll(function() {
         // TODO put the modal release point to a reasonable spot on page
-      let modalRelease = 1000000000;
-       if ($(document).scrollTop() > modalRelease) {
-         setTimeout(showModalIfHidden, 3000);
-       }
-       if ($(document).scrollTop() > 400) {
-         showBannerIfHidden();
-       } else if ($(document).scrollTop() < 300) {
-         hideBannerIfShown();
-       }
+      // let modalRelease = 1000000000;
+      //  if ($(document).scrollTop() > modalRelease) {
+      //    setTimeout(showModalIfHidden, 3000);
+      //  }
+      if ($(document).scrollTop() > 200) {
+        showBannerIfHidden();
+      } else if ($(document).scrollTop() < 300) {
+        hideBannerIfShown();
+      }
      });
 
     document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -158,19 +170,21 @@
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
   <!--THIS IS THE TOP BAR FOR NEWSLETTER! -->
-  <div id="newsletterBanner" class="border sticky-top nav mx-auto newsletter-banner">
-    <div class="overhead-centered-form">
-    </div>
-    <form class="overhead-centered-form form-inline justify-content-center" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-        <div class="form-group">
-          <img class="newsletter-banner-image" src="{{ 'gumbit.svg' | asset_url }}"/>
-          <div class="input-group input-group custom-overhead">
+  <div id="newsletterBanner" class="nav d-flex justify-content-center newsletter-banner">
+    <form class="mr-auto nav-item d-flex form-inline justify-content-center" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+        <div class="nav form-group">
+          <div class="nav-item">
+            <img class="newsletter-banner-image" src="{{ 'gumbit.svg' | asset_url }}"/>
+          </div>
+          <div class="nav-item input-group input-group custom-overhead">
             <input type="text" id="mce-EMAIL" name="EMAIL" class="form-control custom-overhead-input" placeholder="Get Emails!" aria-label="" aria-describedby="sizing-addon2">&nbsp;
-            <button type="submit" formaction=action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" class="btn btn-primary">Submit</button>
+            <button type="submit" formaction=action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" class="btn btn-primary">Join</button>
           </div>
         </div>
-
     </form>
+    <div class="p-3">
+      <a href="javascript:;" id="closeBanner"><i class="btb bt-times"></i></a>
+    </div>
   </div>
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>

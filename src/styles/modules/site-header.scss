@@ -18,7 +18,7 @@
   z-index: 1;
 
   & .st0 {
-    fill: lighten(desaturate($color-primary, 33%), 22%);
+    fill: $color-primary-10;
   }
 }
 
@@ -59,14 +59,20 @@ input#Search, input#mce-EMAIL {
 }
 
 .newsletter-banner {
-  transition-timing-function: ease;
-  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-  display: none;
-  background-color: #f5eaee;
+  @extend .transition;
+  // transition-timing-function: ease;
+  // transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  // display: none;
+  width: 100%;
+  left: 0;
+  top: -56px;
+  position: fixed;
+  z-index: 9;
+  background-color: $color-primary-10;
 }
 
 .newsletter-banner-image {
-  width: 54px;
+  width: 56px;
   margin-left: 10px;
   cursor: pointer;
 }

@@ -1,0 +1,128 @@
+<!-- Homepage Product Grid -->
+
+{%- assign collection = collections[section.settings.collection] -%}
+
+{% paginate collection.products by 5 %}
+
+  <hr />
+
+  {% if section.settings.title != blank %}
+    <h2 class="text-center">{{ section.settings.title | escape }}</h2>
+  {% endif %}
+
+  {% if section.settings.description != blank %}
+    <p class="text-center">{{ section.settings.description | escape }}</p>
+  {% endif %}
+
+  <div class="product-grid EndlessScroll justify-content-center row">
+
+  {% for product in collection.products %}
+    <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
+      <a href="{{ product.url | within: collection }}">
+        {% if product.featured_image != blank %}
+          <div class="reveal product-image">
+            {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+            <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" />
+          </div>
+        {% endif %}
+
+        <h5>{{ product.title }}</h5>
+
+        <p>
+          {% if product.compare_at_price > product.price %}
+
+            {% if product.price_varies %}
+              {%- assign sale_price = product.price | money -%}
+              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+            {% else %}
+              {{ 'products.product.on_sale' | t }}
+              {{ product.price | money }}
+            {% endif %}
+
+          {% else %}
+
+            {% if product.price_varies %}
+              {%- assign price = product.price | money -%}
+              {{ 'products.product.from_text_html' | t: price: price }}
+            {% else %}
+              {{ product.price | money }}
+            {% endif %}
+
+          {% endif %}
+
+          {% if product.compare_at_price > product.price %}
+            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+            <s>{{ product.compare_at_price | money }}</s>
+          {% endif %}
+
+          {% unless product.available %}
+            {{ 'products.product.sold_out' | t }}
+          {% endunless %}
+        </p>
+      </a>
+    </div>
+
+  {% else %}
+    {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
+      {% for i in (1..8) %}
+        <a href="#">
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+        </a>
+
+        <p>
+          <a href="#">{{ 'homepage.onboarding.product_title' | t }}</a>
+        </p>
+
+        <p>
+          {{ 1999 | money }}
+        </p>
+      {% endfor %}
+    {% else %}
+      <p>{{ 'collections.general.no_matches' | t }}</p>
+    {% endif %}
+
+  {% endfor %}
+
+  {% if paginate.next %}
+      <div class="pagination justify-content-center">
+        <p>&nbsp;</p>
+        <a href="{{ paginate.next.url }}"><i class="bts bt-spinner bt-pulse"></i></a>
+      </div>
+    <!-- <div id="more"><p>&darr; <a href="{{ paginate.next.url }}">More</a></p></div> -->
+  {% endif %}
+</div>
+
+{% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Product Grid",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Product Grid"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Description",
+        "default": "Lorem ipsum..."
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Grid",
+        "category": "Collection"
+      }
+    ]
+  }
+
+{% endschema %}

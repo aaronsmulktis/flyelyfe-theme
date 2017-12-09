@@ -1,5 +1,6 @@
 /*================ Color Variables ================*/
 $color-primary: {{ settings.color_primary }};
+$color-primary-10: lighten(desaturate($color-primary, 33%), 44%);
 $color-secondary: adjust-hue($color-primary, 33deg);
 $color-tertiary: adjust-hue($color-primary, 66deg);
 $color-transparent: rbga(0,0,0,0);

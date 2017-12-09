@@ -81,14 +81,23 @@ a:active {color: $color-primary;}
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: $color-white;
+  min-height: 80vh;
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : portrait) {
+  main#MainContent.container {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 15px;
+  }
 }
 
 // Main Slider
 
 .jumbotron {padding: 0; margin: 0;}
-
-.slick-slider .slick-track,
-.featured-slider .slick-slider .slick-list {height: 320px}
 
 .featured-slider {
   & .slick-slide {
@@ -306,6 +315,11 @@ and (orientation : portrait) {
       height: auto !important;
     }
   }
+}
+
+.product-grid {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 // Footer
