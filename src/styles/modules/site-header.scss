@@ -18,21 +18,22 @@
   z-index: 1;
 
   & .st0 {
+    @extend .transition;
     fill: $color-primary-10;
   }
 }
 
 .navbar-brand:hover {
   @extend .wiggle;
-  @extend .transition;
   & .st0 {
-    fill: $color-primary;
+    @extend .transition;
+    fill: $color-tertiary;
   }
 }
 
 .navbar ul li {
   & a {color: $color-black; font-weight: bold}
-  & a:hover {color: $color-primary; font-weight: bold}
+  & a:hover {color: $color-secondary; font-weight: bold}
   margin-right: 1.5em;
   padding: 15px 0px;
 }
@@ -44,12 +45,12 @@ input#Search, input#mce-EMAIL {
 .cart-link {padding-top: 15px !important;}
 
 .form-control:focus {
-  border-color: $color-primary;
+  border-color: $color-secondary;
 }
 
-.badge-primary {
+.badge-secondary {
   border-radius: 50%;
-  background-color: $color-primary;
+  background-color: $color-secondary;
   width: 14px;
   height: 13px;
   font-size: 8px;
@@ -63,6 +64,7 @@ input#Search, input#mce-EMAIL {
   // transition-timing-function: ease;
   // transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   // display: none;
+  box-shadow: 1px 0 5px rgba(desaturate($color-primary, 33%), 0.33);
   width: 100%;
   left: 0;
   top: -56px;
@@ -92,6 +94,11 @@ input#Search, input#mce-EMAIL {
   background-clip: padding-box;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: .25rem !important;
+}
+
+#collapseIcon {
+  margin-top: 3px;
+  margin-right: -10px;
 }
 
 #collapseIcon:focus {

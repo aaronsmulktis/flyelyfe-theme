@@ -1,12 +1,24 @@
 /*================ Color Variables ================*/
-$color-primary: {{ settings.color_primary }};
+// $color-primary: {{ settings.color_primary }};
+// Pink
+$color-primary: #FF0066;
+// Light Pink
 $color-primary-10: lighten(desaturate($color-primary, 33%), 44%);
-$color-secondary: adjust-hue($color-primary, 33deg);
+// Clay Blue
+$color-secondary: adjust-hue(desaturate(darken($color-primary, 0%), 55%), -140deg);
+// Light Clay
+$color-primary-10: lighten(desaturate($color-secondary, 11%), 44%);
+// Yellow
 $color-tertiary: adjust-hue($color-primary, 66deg);
+// Purple / Violet
+$color-tertiary-2: adjust-hue(desaturate(lighten($color-primary, 18%), 60%), -69deg);
+
 $color-transparent: rbga(0,0,0,0);
 
+// #FF0066 pink
 // #29BEA4 teal
 // #5E25FB twilight
+// #69A8C0 clay blue
 
 $color-black: #000;
 $color-dark: #999;

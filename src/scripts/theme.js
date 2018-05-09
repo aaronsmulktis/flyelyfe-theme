@@ -105,6 +105,16 @@ $(document).ready(function() {
 
   // Defaults
 
+  // Color of the month... turn the last part of title blue? I tried, not working :/ must give up now bye
+  // function getColorText(str) {
+  //     return str.split(':')[1];
+  // }
+  // var text = $('#shopify-section-1525234644885 h2 text');
+  // var first = $('#shopify-section-1525234644885 h2 text');
+  // var second = $('#shopify-section-1525234644885 h2 text');
+  // document.getElementById('#shopify-section-1525234644885').innerHTML = first + `<span>${second}</span>`;
+  // console.log(text, first, second);
+
   var sections = new slate.Sections();
   sections.register('product', theme.Product);
 

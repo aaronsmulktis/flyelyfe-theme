@@ -25,8 +25,8 @@ h3,h4,h5,h6 {
 /*================ Links & Buttons ================*/
 a {color: $color-black;}
 a:visited {color: $color-black;}
-a:hover {color: $color-primary; text-decoration: none;}
-a:active {color: $color-primary;}
+a:hover {color: $color-secondary; text-decoration: none;}
+a:active {color: $color-secondary;}
 
 .btn {
   @include prefix('user-select', 'none', moz ms webkit spec);
@@ -41,38 +41,38 @@ a:active {color: $color-primary;}
 }
 
 .btn-primary {
-  background-color: $color-primary;
-  border: darken($color-primary, 15%);
+  background-color: $color-secondary;
+  border: darken($color-secondary, 15%);
 }
 .btn-primary:hover {
-  border: darken($color-tertiary, 15%);
-  background-color: $color-tertiary;
+  border: darken($color-tertiary-2, 15%);
+  background-color: $color-tertiary-2;
 }
 
 .btn-primary:focus {
-  background-color: $color-primary;
-  border: darken($color-primary, 15%);
+  background-color: $color-secondary;
+  border: darken($color-secondary, 15%);
 }
 
 .btn-outline-success {
-  color: $color-primary;
+  color: $color-secondary;
   background-image: none;
   background-color: transparent;
-  border-color: $color-primary;
+  border-color: $color-secondary;
 }
 .btn-outline-success:hover {
-  background-color: $color-primary;
-  border-color: darken($color-primary, 15%);
+  background-color: $color-secondary;
+  border-color: darken($color-secondary, 15%);
 }
 
 .btn-outline-success:active {
-  background-color: $color-primary;
-  border-color: lighten($color-primary, 10%);
+  background-color: $color-secondary;
+  border-color: lighten($color-secondary, 10%);
 }
 
 .btn-outline-success:focus {
-  background-color: $color-primary;
-  border-color: lighten($color-primary, 10%);
+  background-color: $color-secondary;
+  border-color: lighten($color-secondary, 10%);
 }
 
 // Global Container
@@ -93,6 +93,27 @@ and (orientation : portrait) {
     padding-right: 0px;
     margin-bottom: 15px;
   }
+}
+
+// Navigation
+.site-nav__submenu {
+  display: none;
+}
+
+.site-nav li {
+  @extend .font3;
+  & a:hover {
+    padding-bottom: 5px;
+    border-bottom: 1px dotted $color-primary;
+  }
+}
+
+li.nav-item a svg {
+  display: none;
+}
+
+input#mce-EMAIL {
+  width: 120px;
 }
 
 // Main Slider
