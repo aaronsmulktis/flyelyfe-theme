@@ -118,8 +118,8 @@
   margin: 0;
 }
 
-.spacer20 {margin-top: 20px;}
-.spacer40 {margin-top: 40px;}
+.spacer20 {width: 100%; height: 20px; display: inline-block;}
+.spacer40 {width: 100%; height: 40px; display: inline-block;}
 
 .noPadding {
   padding: 0;

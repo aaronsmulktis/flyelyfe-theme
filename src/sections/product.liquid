@@ -149,10 +149,17 @@
 
         <div class="rte">
           {% if product.description %}
-          <h5><i class="btb bt-exclamation-circle"></i>&nbsp; Product Details</h5>
+            <h5><i class="btb bt-exclamation-circle"></i>&nbsp; Product Details</h5>
             {{ product.description }}
           {% endif %}
+
+          <h5><i class="btb bt-label"></i>&nbsp; Tags:</h5>
+          {% for tag in product.tags %}  
+            <li class="tagItem"><h6><a href="http://whatever.myshopify.com/collections/all/{{ tag }}">{{ tag }}</a><h6></li>
+          {% endfor %}
         </div>
+
+        <div class="spacer20"></div>
 
         <h5><i class="btb bt-share"></i>&nbsp; Share this product</h5>
         {% if section.settings.show_share_buttons %}
