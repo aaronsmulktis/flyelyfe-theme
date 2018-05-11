@@ -155,7 +155,7 @@
 
           <h5><i class="btb bt-label"></i>&nbsp; Tags:</h5>
           {% for tag in product.tags %}  
-            <li class="tagItem"><h6><a href="http://whatever.myshopify.com/collections/all/{{ tag }}">{{ tag }}</a><h6></li>
+            <li class="tagItem"><h6><a href="//flyelyfe.com/collections/all/{{ tag }}">{{ tag | handleize }}</a><h6></li>
           {% endfor %}
         </div>
 
