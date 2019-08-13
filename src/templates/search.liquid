@@ -32,7 +32,7 @@
   </form>
 
 
-{% if search.performed %}
+  {% if search.performed %}
     <div class="EndlessScroll row">
       {% for item in search.results %}
         <div class="product-snippet col-lg-2 col-md-4 col-sm-6">
@@ -49,42 +49,59 @@
             <p>
               {% if item.compare_at_price > item.price %}
 
-                {% if item.price_varies %}
-                  {%- assign sale_price = item.price | money -%}
-                  {{ 'products.item.on_sale_from_html' | t: price: sale_price }}
+                {%- assign sale_price = item.price | money -%}
+                {%- assign reg_price = item.compare_at_price | money -%}
+                {% if available %}
+                  {% if item.price_varies %}
+                    From {{ item.price_min | money }} to {{ item.price_max | money }} 
+                  {% else %}
+                    {{ 'products.item.on_sale' | t }}
+                    <span class="reg-sale">{{ sale_price | money }}</span>
+                    <span class="on-sale">{{ sale_price | money }}</span>
+                  {% endif %}
                 {% else %}
-                  {{ 'products.item.on_sale' | t }}
-                  {{ item.price | money }}
+                  {% comment %} {{ 'products.item.sold_out' | t }} {% endcomment %}
+                  {% if item.price_varies %}
+                    From {{ item.price_min | money }} to {{ item.price_max | money }} 
+                  {% else %}
+                    {{ 'products.item.on_sale' | t }}
+                    <span class="reg-sale">{{ sale_price | money }}</span>
+                    <span class="on-sale">{{ sale_price | money }}</span>
+                  {% endif %}
                 {% endif %}
 
               {% else %}
 
-                {% if item.price_varies %}
-                  {%- assign price = item.price | money -%}
-                  {{ 'products.item.from_text_html' | t: price: price }}
+                {% if available %}
+                  {% if item.price_varies %}
+                    From {{ item.price_min | money }} to {{ item.price_max | money }} 
+                  {% else %}
+                    {{ item.price | money }}
+                  {% endif %}
                 {% else %}
-                  {{ item.price | money }}
+                  {% comment %} {{ 'products.item.sold_out' | t }} {% endcomment %}
+                  {% if item.price_varies %}
+                    From {{ item.price_min | money }} to {{ item.price_max | money }} 
+                  {% else %}
+                    {{ item.price | money }}
+                  {% endif %}
                 {% endif %}
 
               {% endif %}
-
-              {% if item.compare_at_price > item.price %}
-                <span class="visually-hidden">{{ 'products.item.regular_price' | t }}</span>
-                <s>{{ item.compare_at_price | money }}</s>
-              {% endif %}
-
-              {% unless item.available %}
-                {{ 'products.item.sold_out' | t }}
-              {% endunless %}
             </p>
           </a>
         </div>
       {% endfor %}
-    </div>
-
-    {% if paginate.pages > 1 %}
-      {% include 'pagination' %}
-    {% endif %}
   {% endif %}
-
+  
+  {% if paginate.next %}
+    <div class="pagination justify-content-center">
+      <p>&nbsp;</p>
+      <a href="{{ paginate.next.url }}"><i class="bts bt-spinner bt-pulse"></i></a>
+    </div>
+    <!-- <div id="more"><p>&darr; <a href="{{ paginate.next.url }}">More</a></p></div> -->
+  {% endif %}
+  </div>
+  
 {% endpaginate %}
+

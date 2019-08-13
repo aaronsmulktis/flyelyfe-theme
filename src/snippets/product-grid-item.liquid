@@ -1,0 +1,56 @@
+<div class="product-snippet col-lg-3 col-md-4 col-sm-6">
+  <a href="{{ product.url | within: collection }}">
+    {% if product.featured_image != blank %}
+      <div class="reveal product-image">
+        {{ product.featured_image.src | img_url: '480x480' | img_tag: product.title }}
+        <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" />
+      </div>
+    {% endif %}
+
+    <h5>{{ product.title }}</h5>
+
+    <p>
+      {% if product.compare_at_price > product.price %}
+
+        {%- assign sale_price = product.price | money -%}
+        {%- assign reg_price = product.compare_at_price | money -%}
+        {% if available %}
+          {% if product.price_varies %}
+            From {{ product.price_min | money }} to {{ product.price_max | money }} 
+          {% else %}
+            {{ 'products.product.on_sale' | t }}
+            <span class="reg-sale">{{ sale_price | money }}</span>
+            <span class="on-sale">{{ sale_price | money }}</span>
+          {% endif %}
+        {% else %}
+          {% comment %} {{ 'products.product.sold_out' | t }} {% endcomment %}
+          {% if product.price_varies %}
+            From {{ product.price_min | money }} to {{ product.price_max | money }} 
+          {% else %}
+            {{ 'products.product.on_sale' | t }}
+            <span class="reg-sale">{{ sale_price | money }}</span>
+            <span class="on-sale">{{ sale_price | money }}</span>
+          {% endif %}
+        {% endif %}
+
+      {% else %}
+
+        {% if available %}
+          {% if product.price_varies %}
+            From {{ product.price_min | money }} to {{ product.price_max | money }} 
+          {% else %}
+            {{ product.price | money }}
+          {% endif %}
+        {% else %}
+          {% comment %} {{ 'products.product.sold_out' | t }} {% endcomment %}
+          {% if product.price_varies %}
+            From {{ product.price_min | money }} to {{ product.price_max | money }} 
+          {% else %}
+            {{ product.price | money }}
+          {% endif %}
+        {% endif %}
+
+      {% endif %}
+    </p>
+  </a>
+</div>

@@ -31,33 +31,45 @@
         <p>
           {% if product.compare_at_price > product.price %}
 
-            {% if product.price_varies %}
-              {%- assign sale_price = product.price | money -%}
-              {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+            {%- assign sale_price = product.price | money -%}
+            {%- assign reg_price = product.compare_at_price | money -%}
+            {% if available %}
+              {% if product.price_varies %}
+                From {{ product.price_min | money }} to {{ product.price_max | money }} 
+              {% else %}
+                {{ 'products.product.on_sale' | t }}
+                <span class="reg-sale">{{ sale_price | money }}</span>
+                <span class="on-sale">{{ sale_price | money }}</span>
+              {% endif %}
             {% else %}
-              {{ 'products.product.on_sale' | t }}
-              {{ product.price | money }}
+              {% comment %} {{ 'products.product.sold_out' | t }} {% endcomment %}
+              {% if product.price_varies %}
+                From {{ product.price_min | money }} to {{ product.price_max | money }} 
+              {% else %}
+                {{ 'products.product.on_sale' | t }}
+                <span class="reg-sale">{{ sale_price | money }}</span>
+                <span class="on-sale">{{ sale_price | money }}</span>
+              {% endif %}
             {% endif %}
 
           {% else %}
 
-            {% if product.price_varies %}
-              {%- assign price = product.price | money -%}
-              {{ 'products.product.from_text_html' | t: price: price }}
+            {% if available %}
+              {% if product.price_varies %}
+                From {{ product.price_min | money }} to {{ product.price_max | money }} 
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
             {% else %}
-              {{ product.price | money }}
+              {% comment %} {{ 'products.product.sold_out' | t }} {% endcomment %}
+              {% if product.price_varies %}
+                From {{ product.price_min | money }} to {{ product.price_max | money }} 
+              {% else %}
+                {{ product.price | money }}
+              {% endif %}
             {% endif %}
 
           {% endif %}
-
-          {% if product.compare_at_price > product.price %}
-            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
-            <s>{{ product.compare_at_price | money }}</s>
-          {% endif %}
-
-          {% unless product.available %}
-            {{ 'products.product.sold_out' | t }}
-          {% endunless %}
         </p>
       </a>
     </div>
