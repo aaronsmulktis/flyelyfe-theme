@@ -1,6 +1,9 @@
 {
   "name": "flyelyfe",
   "version": "0.1.0",
+  "scripts": {
+    "start": "slate-tools --env=development"
+  },
   "devDependencies": {
     "@shopify/slate-tools": "0.13.0",
     "grunt": "^1.0.1"
