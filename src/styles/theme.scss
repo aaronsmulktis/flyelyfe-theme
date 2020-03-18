@@ -8,7 +8,7 @@
 @import url('tools/mixins.scss');
 
 /*================ SETTINGS ================*/
-@import url('settings/variables.scss.liquid');
+@import url('settings/variables.scss');
 
 
 // Lightbox
@@ -19,8 +19,7 @@
 @import url("jquery.fancybox-buttons.css");
 
 // Material
-
-
+// @import url('vendor/material.scss');
 
 // Tether
 
@@ -49,13 +48,13 @@
 @import url('global/slate-reset.scss');
 @import url('global/helper-classes.scss');
 @import url('global/grid.scss');
-@import url('global/layout.scss');
 @import url('global/icons.scss');
 @import url('global/rte.scss');
 @import url('global/responsive-tables.scss');
-@import url('global/forms.scss');
 @import url('global/blank-states.scss');
+@import url('global/forms.scss');
 
 /*================ MODULES ================*/
 @import url('modules/site-header.scss');
+@import url('global/layout.scss');
 @import url('modules/gift-card-template.scss');

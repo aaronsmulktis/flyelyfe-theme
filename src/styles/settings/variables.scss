@@ -12,6 +12,8 @@ $color-primary-10: lighten(desaturate($color-secondary, 11%), 44%);
 $color-tertiary: adjust-hue($color-primary, 66deg);
 // Purple / Violet
 $color-tertiary-2: adjust-hue(desaturate(lighten($color-primary, 18%), 60%), -69deg);
+$color-teal: #29BEA4;
+$color-twilight: #5E25FB;
 
 $color-transparent: rbga(0,0,0,0);
 
@@ -21,7 +23,7 @@ $color-transparent: rbga(0,0,0,0);
 // #69A8C0 clay blue
 
 $color-black: #000;
-$color-dark: #999;
+$color-dark: #111;
 $color-white: #fff;
 
 // Text colors

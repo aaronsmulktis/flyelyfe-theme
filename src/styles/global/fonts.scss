@@ -10,7 +10,14 @@
          url('hella_vettica.svg#hella_vetticamedium') format('svg');
     font-weight: normal;
     font-style: normal;
+}
 
+@font-face {
+    font-family: 'beko';
+    src: url('beko.woff2') format('woff2'),
+         url('beko.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .font1 {
