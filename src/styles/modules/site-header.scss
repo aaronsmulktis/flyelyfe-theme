@@ -10,51 +10,16 @@
 
 // Navbar
 
-.navbar {
-  position: fixed;
-  z-index:9;
-  left:0;
-  right:0;
-  padding: 0 8%;
-  -webkit-box-shadow:0px 2px 4px 0px rgba(0,0,0,.1);
-  -moz-box-shadow:0px 2px 4px 0px rgba(0,0,0,.1);
-  -ms-box-shadow:0px 2px 4px 0px rgba(0,0,0,.1);
-  -o-box-shadow:0px 2px 4px 0px rgba(0,0,0,.1);
-  box-shadow:0px 2px 4px 0px rgba(0,0,0,.1);
-  background: $color-secondary;
-}
-
-.misc-links {
-  position: absolute;
-  right: 9%;
-}
-
-.site-nav {
-  margin-left: 60px;
-  
-  @media only screen and (max-width: 991px) {
-    margin-left: 0;
-  }
-}
-
 .navbar-brand {
   width: 120px;
-  position: absolute;
+  position: relative;
   top: -10px;
   margin-bottom: -100px;
-  z-index: 1000;
+  z-index: 1;
 
   & .st0 {
     @extend .transition;
     fill: $color-primary-10;
-  }
-  
-  @media only screen and (max-width: 991px) {
-    top: 0;
-    left: 8%;
-    width: 100px;
-    margin-bottom: -60px;
-    z-index: 100;
   }
 }
 
@@ -66,79 +31,21 @@
   }
 }
 
-ul#global-menu {
-  text-decoration: none;
-  padding: 10px 0px 0 0;
-  margin-bottom: 10px;
-}
-
 .navbar ul li {
-  font-family: 'beko', script;
   & a {color: $color-black; font-weight: bold}
-  // & a:hover {color: $color-secondary; font-weight: bold}
-  & a:hover {color: white; font-weight: bold}
+  & a:hover {color: $color-secondary; font-weight: bold}
   margin-right: 1.5em;
   padding: 15px 0px;
-  display: inline-block;
-  @media only screen and (max-width: 991px) {
-    font-family: 'beko', script;
-    margin-right: 1.5em;
-    padding: 15px 0px;
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-li.mobile-search-bar form {
-  margin-bottom: 0px !important;
-  & span {
-    display: flex;
-    width: 100%;
-    & input {
-      margin-right: 10px;
-    }
-  }
 }
 
 input#Search, input#mce-EMAIL {
   @extend .font2;
 }
 
-.mobile-newsletter-signup form div.form-group {
-  & .input-group {
-    padding: .5rem 0.5rem;
-  }
-  width: 100%;
-}
-
-.cart-link {
-  padding-top: 15px !important;
-}
-
-.cart-link i {
-  font-size: 22px;
-  padding: 4px;
-}
+.cart-link {padding-top: 15px !important;}
 
 .form-control:focus {
   border-color: $color-secondary;
-}
-
-.badge {
-  position: absolute;
-  top: 20px;
-  border-radius: 50%;
-  padding: 6px;
-  min-width: 24px;
-  margin-left: -10px;
-
-  @media only screen and (max-width: 991px) {
-    top: 6px;
-    padding: 9px 6px 6px;
-    min-width: 26px;
-    transform: scale(0.8);
-  }
 }
 
 .badge-secondary {
@@ -156,7 +63,7 @@ input#Search, input#mce-EMAIL {
   @extend .transition;
   // transition-timing-function: ease;
   // transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-  display: none;
+  // display: none;
   box-shadow: 1px 0 5px rgba(desaturate($color-primary, 33%), 0.33);
   width: 100%;
   left: 0;
@@ -198,34 +105,18 @@ input#Search, input#mce-EMAIL {
   outline: none;
 }
 
-.socials a.instagram {
-  display: none;
-}
-
 #gumbit {
   @extend .transition;
   position: absolute;
-  z-index: 99;
-  left: 8%;
+  right: 80px;
   width: 75px;
-  top: 20px;
+  top: 75vh;
   transform: rotate(50deg);
-  transition: all 0.33s cubic-bezier(1,-0.59,0,1.68);
-  
-  @media only screen and (max-width: 991px) {
-    left: 23%;
-    transform: rotate(52deg);
-  }
 }
 
 #gumbit.popped {
-  transition: all 0.66s cubic-bezier(1,.6,.2,1.57);
-  margin-left: 73px;
-  transform: rotate(65deg);
-  
-  @media only screen and (max-width: 991px) {
-    margin-left: 10px;
-  }
+  @extend .transition;
+  right: 20px;
 }
 
 /*========== MOBILE MENU STYLES ========== */
@@ -237,7 +128,7 @@ input#Search, input#mce-EMAIL {
 
   .navbar-collapse ul {
     text-align: right !important;
-    margin-right: 2px !important;
+    margin-right: -13px !important;
   }
 
   .navbar-collapse ul li {padding: 0px;}
@@ -245,6 +136,14 @@ input#Search, input#mce-EMAIL {
   .mobile-menu {
     text-align: right !important;
     margin-bottom: -35px !important;
+  }
+
+  .navbar-brand {
+    width: 100px;
+    top: -15px;
+    left: -10px;
+    margin-bottom: -60px;
+    z-index: 1;
   }
 
   .align-with-logo {
@@ -266,14 +165,6 @@ input#Search, input#mce-EMAIL {
     padding-top: 1px !important;
     display: inline-block !important;
     margin-top: 5px !important;
-  }
-
-  .socials {
-    margin: 2px 25px 0 0;
-  }
-
-  .socials a.instagram {
-    display: block;
   }
 
   .cart {

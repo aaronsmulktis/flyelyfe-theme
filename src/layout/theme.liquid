@@ -72,14 +72,14 @@
         return null;
     }
 
-    {% comment %} function loadNewsletter() {
+    function loadNewsletter() {
       // only on mobile
       if (readCookie("newsletter")) {
         return;
       } else {
         showBannerIfHidden();
       }
-    } {% endcomment %}
+    }
 
     var showModalIfHidden = function() {
       var modal = $('#emailModal');

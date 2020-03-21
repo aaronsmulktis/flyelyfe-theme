@@ -2,9 +2,7 @@
 body,
 html {
   width: 100%;
-  // background-color: desaturate(lighten($color-primary, 44%), 66%);
-  background: url("memphis-mini.png");
-  background-attachment: fixed;
+  background-color: desaturate(lighten($color-primary, 44%), 66%);
   @extend .font2;
 }
 
@@ -24,7 +22,7 @@ h3,h4,h5,h6 {
   font-weight: bold
 }
 
-/*================ Links, Buttons, Forms ================*/
+/*================ Links & Buttons ================*/
 a {color: $color-black;}
 a:visited {color: $color-black;}
 a:hover {color: $color-secondary; text-decoration: none;}
@@ -56,106 +54,34 @@ a:active {color: $color-secondary;}
   border: darken($color-secondary, 15%);
 }
 
-.btn-outline {
-  font-weight: 700;
-  color: $color-dark;
-  background-color: transparent;
-  border: 3px solid $color-dark;
-}
-.btn-outline:hover {
-  color: $color-white;
-  background-color: transparent;
-  border: 3px solid $color-white;
-  box-shadow: 1px 2px 4px rgba(0,0,0,0.123);
-}
-
-.btn-outline:active {
-  color: $color-white;
-  background-color: transparent;
-  border: 3px solid lighten($color-dark, 10%);
-}
-
-.btn-outline:focus {
-  background-color: transparent;
-  border: 3px solid lighten($color-dark, 10%);
-}
-
 .btn-outline-success {
-  color: $color-dark;
+  color: $color-secondary;
   background-image: none;
   background-color: transparent;
-  border: 3px solid $color-dark;
+  border-color: $color-secondary;
 }
 .btn-outline-success:hover {
-  color: $color-teal;
-  background-color: lighten($color-teal, 36%);
-  border: 3px solid $color-teal;
-  box-shadow: 1px 2px 4px rgba(0,0,0,0.123);
+  background-color: $color-secondary;
+  border-color: darken($color-secondary, 15%);
 }
 
 .btn-outline-success:active {
-  color: $color-white;
-  background-color: transparent;
-  border: 3px solid $color-primary;
+  background-color: $color-secondary;
+  border-color: lighten($color-secondary, 10%);
 }
 
 .btn-outline-success:focus {
-  color: $color-white;
-  background-color: transparent;
-  border: 3px solid $color-primary;
-}
-
-.btn-join {
-  background: transparent;
-  border: 3px solid $color-dark;
-}
-.btn-join:hover {
-  color: $color-primary;
-  background: lighten($color-primary, 36%);
-  border: 3px solid $color-primary;
-}
-
-.btn-join:focus {
-  background: lighten($color-primary, 36%);
-  border: 3px solid $color-primary;
-}
-
-input.form-control {
-  border: 3px solid $color-dark;
-}
-
-select.form-control {
-  border: 3px solid $color-dark !important;
-}
-
-input.form-control:hover {
-  background: lighten($color-primary, 36%);
-  border: 3px solid $color-primary;
-}
-
-input.form-control.search-form:hover {
-  background: lighten($color-teal, 36%);
-  border: 3px solid $color-teal;
-}
-
-input.form-control:focus {
-  background: lighten($color-twilight, 36%);
-  border: 3px solid $color-twilight;
+  background-color: $color-secondary;
+  border-color: lighten($color-secondary, 10%);
 }
 
 // Global Container
 
 #MainContent {
-  padding-top: 68px;
+  padding-top: 15px;
   padding-bottom: 15px;
   background-color: $color-white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.12);
   min-height: 80vh;
-
-  @media only screen and (min-width: 991px) {
-    padding-top: 125px;
-    width: 90%;
-  }
 }
 
 @media only screen
@@ -166,7 +92,6 @@ and (orientation : portrait) {
     padding-left: 0px;
     padding-right: 0px;
     margin-bottom: 15px;
-    width: 90%;
   }
 }
 
@@ -187,34 +112,13 @@ li.nav-item a svg {
   display: none;
 }
 
-.input-outline {
-  border: 3px solid black;
-}
-
 input#mce-EMAIL {
   width: 120px;
 }
 
-.socials a:hover {
-  color: $color-white
-}
-
 // Main Slider
 
-.jumbotron {
-  padding: 0;
-  margin: -8px 0 -8px 0;
-  border: 7px double black;
-  border-radius: 0;
-  transform: rotate(1deg);
-  box-shadow: 1px 2px 22px rgba(0,0,0,0.33);
-  position: relative;
-  z-index: 9;
-  @media only screen and (max-width: 991px) {
-    transform: rotate(3deg);
-    position: static;
-  }
-}
+.jumbotron {padding: 0; margin: 0;}
 
 .featured-slider {
   & .slick-slide {
@@ -288,7 +192,7 @@ and (orientation : portrait) {
 .slick-next {right: 15px;}
 .slick-prev {left: 15px; z-index: 1}
 
-// Featured Collection: Scrollable Horizontal List
+// Featured Collection
 .featured-products-slider {
   width: 100%;
   font-size: 0;
@@ -298,7 +202,7 @@ and (orientation : portrait) {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  // background-attachment: local, local, scroll, scroll;
+  background-attachment: local, local, scroll, scroll;
   // Attempt to add inner shadow to appear as drawer
   background:
     linear-gradient(to right, $color-white 20%, $color-transparent),
@@ -336,14 +240,6 @@ and (orientation : portrait) {
     height: 220px;
     overflow: hidden;
   }
-}
-
-// Collection List
-.grid__item {
-  border: 3px solid black;
-  margin: 5px 10px;
-  padding: 10px 10px 0px;
-  width: auto;
 }
 
 @media only screen
