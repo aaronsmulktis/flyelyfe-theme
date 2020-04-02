@@ -12,10 +12,8 @@
 
 .navbar-brand {
   width: 120px;
-  position: relative;
   top: -10px;
   margin-bottom: -100px;
-  z-index: 1;
 
   & .st0 {
     @extend .transition;
