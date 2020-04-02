@@ -46,7 +46,11 @@
 
   & .st0 {
     @extend .transition;
-    fill: $color-primary-10;
+    fill: $color-yellow;
+  }
+  & .st1 {
+    @extend .transition;
+    fill: $color-clay;
   }
   
   @media only screen and (max-width: 991px) {
@@ -62,7 +66,11 @@
   @extend .wiggle;
   & .st0 {
     @extend .transition;
-    fill: $color-tertiary;
+    fill: $color-teal;
+  }
+  & .st1 {
+    @extend .transition;
+    fill: $color-teal;
   }
 }
 
@@ -110,6 +118,22 @@ input#Search, input#mce-EMAIL {
     padding: .5rem 0.5rem;
   }
   width: 100%;
+}
+
+.desktop-cart {
+  padding-top: 15px;
+  & a {
+    border: 3px solid rgba($color-dark, 0.123);
+    border-radius: 4px;
+    @extend .transition;
+  }
+  & a:hover {
+    @extend .transition;
+    color: $color-slate;
+    border: 3px solid $color-slate;
+    border-radius: 4px;
+    background: $color-clay;
+  }
 }
 
 .cart-link {

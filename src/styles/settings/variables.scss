@@ -10,13 +10,20 @@ $color-secondary: adjust-hue(desaturate(darken($color-primary, 0%), 55%), -140de
 $color-primary-10: lighten(desaturate($color-secondary, 11%), 44%);
 // Yellow
 $color-tertiary: adjust-hue($color-primary, 66deg);
+$color-yellow: adjust-hue($color-primary, 66deg);
 // Purple / Violet
 $color-tertiary-2: adjust-hue(desaturate(lighten($color-primary, 18%), 60%), -69deg);
+$color-violet: adjust-hue(desaturate(lighten($color-primary, 18%), 60%), -69deg);
+
+$color-pink: #FF0066;
 $color-teal: #29BEA4;
+$color-clay: #69A8C0;
+$color-slate: #014c8c;
 $color-twilight: #5E25FB;
 
 $color-transparent: rbga(0,0,0,0);
 
+// #014c8c slate
 // #FF0066 pink
 // #29BEA4 teal
 // #5E25FB twilight
