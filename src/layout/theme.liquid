@@ -132,7 +132,7 @@
 
     $(window).scroll(function() {
       if ($(document).scrollTop() > 200) {
-        setTimeout(loadNewsletter(), 3000);
+        setTimeout(() => {}, 3000); // loadNewsletter was undefined.
       } else if ($(document).scrollTop() < 300) {
         hideBannerIfShown();
       }
