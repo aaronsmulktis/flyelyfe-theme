@@ -1,9 +1,12 @@
 /*================ General layout styles ================*/
+
 body,
 html {
   width: 100%;
   // background-color: desaturate(lighten($color-primary, 44%), 66%);
-  background: url("memphis-mini.png");
+  // background: url("memphis-mini.png");
+  overflow-x: hidden;
+  background-color: $color-white;
   background-attachment: fixed;
   @extend .font2;
 }
@@ -107,57 +110,81 @@ a:active {color: $color-secondary;}
 
 .btn-join {
   background: transparent;
-  border: 3px solid $color-dark;
-}
-.btn-join:hover {
-  color: $color-primary;
-  background: lighten($color-primary, 36%);
-  border: 3px solid $color-primary;
+  // border: 3px solid $color-dark;
+  color: white;
+  border: 1px solid white;
+  &:hover {
+    color: $color-primary;
+    background: lighten($color-primary, 36%);
+    // border: 3px solid $color-primary;
+    border: 1px solid white;
+  }
+  &:focus {
+    background: lighten($color-primary, 36%);
+    // border: 3px solid $color-primary;
+    border: 1px solid white;
+  }
+
+  // mobile sizes
+  @media only screen and (max-width: 991px) {
+    border: 3px solid $color-dark;
+    color: $color-dark;
+
+    &:hover {
+      border: 3px solid white;
+      background: lighten($color-primary, 36%);
+      border: 3px solid $color-primary;
+    }
+  }
 }
 
-.btn-join:focus {
-  background: lighten($color-primary, 36%);
-  border: 3px solid $color-primary;
-}
+
 
 input.form-control {
   border: 3px solid $color-dark;
+  &:hover {
+    // background: lighten($color-primary, 36%);
+    border: 3px solid $color-primary;
+  }
+  &:focus {
+    background: lighten($color-twilight, 36%);
+    border: 3px solid $color-twilight;
+  }
 }
 
 select.form-control {
   border: 3px solid $color-dark !important;
 }
 
-input.form-control:hover {
-  background: lighten($color-primary, 36%);
-  border: 3px solid $color-primary;
-}
 
 input.form-control.search-form:hover {
   background: lighten($color-teal, 36%);
   border: 3px solid $color-teal;
 }
 
-input.form-control:focus {
-  background: lighten($color-twilight, 36%);
-  border: 3px solid $color-twilight;
-}
-
 // Global Container
 
 #MainContent {
+  padding-left: 1%;
+  padding-right: 1%;
+
+
   padding-top: 68px;
   padding-bottom: 15px;
   background-color: $color-white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.12);
+  // box-shadow: 0 0 10px rgba(0,0,0,0.12);
   min-height: 80vh;
+  width: 100%;
 
-  @media only screen and (min-width: 991px) {
-    padding-top: 125px;
-    width: 90%;
+  max-width: 1440px;
+  @media only screen and (min-width: 992px) {
+    // padding-top: 125px;
+    padding-top: 190px;
+    // width: 90%;
   }
 }
 
+/*
 @media only screen
 and (min-device-width : 375px)
 and (max-device-width : 667px)
@@ -169,6 +196,7 @@ and (orientation : portrait) {
     width: 90%;
   }
 }
+*/
 
 // Navigation
 .site-nav__submenu {
@@ -179,7 +207,10 @@ and (orientation : portrait) {
   @extend .font3;
   & a:hover {
     padding-bottom: 5px;
-    border-bottom: 1px dotted $color-primary;
+    // border-bottom: 1px dotted $color-primary;
+  }
+  &:nth-of-type(3) {
+    margin-left: 33vw;
   }
 }
 
@@ -188,11 +219,13 @@ li.nav-item a svg {
 }
 
 .input-outline {
-  border: 3px solid black;
+  // border: 3px solid black;
+  border: 1px solid white;
 }
 
 input#mce-EMAIL {
-  width: 120px;
+  // width: 120px;
+  width: 100vw;
 }
 
 .socials a:hover {
@@ -204,19 +237,23 @@ input#mce-EMAIL {
 .jumbotron {
   padding: 0;
   margin: -8px 0 -8px 0;
-  border: 7px double black;
+  // border: 7px double black;
+  // border: 1px solid black;
   border-radius: 0;
-  transform: rotate(1deg);
+  // transform: rotate(1deg);
   box-shadow: 1px 2px 22px rgba(0,0,0,0.33);
   position: relative;
   z-index: 9;
-  @media only screen and (max-width: 991px) {
-    transform: rotate(3deg);
-    position: static;
+  @media only screen and (max-width: 992px) {
+    // transform: rotate(3deg);
+    // position: static;
   }
 }
 
 .featured-slider {
+  margin-top: -50px;
+  margin-bottom: 20px;
+  height: 100%;
   & .slick-slide {
     padding: 0;
   }
@@ -245,6 +282,11 @@ input#mce-EMAIL {
       top: 0;
       height: 320px;
     }
+  }
+  @media only screen and (max-width: 992px) {
+    // margin: -10px 0;
+    margin: 0;
+    margin-bottom: 2em;
   }
 }
 
