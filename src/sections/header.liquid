@@ -56,11 +56,68 @@
 
   </header> -->
 
+
+
 <!-- TODO -- add new cart that shows below elems, hide current one -->
   <div class="mobile-menu navbar navbar-fixed-top navbar-toggleable-md" role="navigation">
-    <!-- Mobile Cart Next to Mobile Menu -->
-    
+
+    <div class="top-bar">
+
+      <div>
+        <form action="/search" method="get" role="search">
+          <input class="top-search"
+            placeholder="Search"
+            id="Search"
+            name="q"
+            type="search"
+            value="{{search.terms | escape}}"
+          />
+          <button type="submit" class="search-form btn btn-outline-success my-2 my-sm-0 btn-search-white">
+            {% include 'icon-search' %}
+            <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+          </button>
+          </form>
+      </div>
+
+      <div>
+        <!-- Desktop Cart Icon -->
+        <div class="desktop-cart">
+          <a class="cart p-2 cart-link" href="/cart">
+            <i class="btb bt-shopping-cart"></i>
+            {% if cart.item_count != 0 %}
+              <span class="badge badge-primary">
+                {{ cart.item_count }}
+              </span>
+            {% endif %}
+          </a>
+        </div>
+        <!-- End Desktop Cart Icon -->
+
+        <!-- Newsletter Signup -->
+        <form action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+          <div class="top-form">
+            <input type="text" name="EMAIL" class="top-news-input" placeholder="Get Emails!" aria-label="" aria-describedby="sizing-addon2" />&nbsp;
+            <button id="newsletterSubmit" type="submit" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" class="btn btn-join btn-outline">Join</button>
+          </div>
+        </form>
+      </div>
+      <!-- End Newsletter Signup -->
+
+    </div>
+    <!-- End Top Bar -->
+
+    <!-- Mobile Menu w/ cart burger and insta icon -->
     <ul id="global-menu" class="list">
+
+      <li>
+        <!-- Instagram Icon (next to burger) -->
+        <div class="socials">
+          <a class="instagram" target="_blank" href="//www.instagram.com/flyelyfe">
+            {% include 'icon-instagram' %}
+          </a>
+        </div>
+      </li>
+
       <li>
         <!-- Hide Show Class: mobile-cart-upper -->
         <a style="display: none;" class="mobile-menu mobile-cart-upper p-2 cart-link" href="/cart">
@@ -72,14 +129,7 @@
           {% endif %}
         </a>
       </li>
-      <li>
-        <!-- Instagram Icon (next to burger) -->
-        <div class="socials">
-          <a class="instagram" target="_blank" href="//www.instagram.com/flyelyfe">
-            {% include 'icon-instagram' %}
-          </a>
-        </div>
-      </li>
+
       <li>
         <!-- Burger Icon -->
         <button id="collapseIcon" class="navbar-toggler" type="button" data-toggle="collapse">
@@ -118,12 +168,12 @@
             l6.2,27.6l8-5.5l-2.9-11.6l5-4l-0.3,10.6L82.4,69.8z"/>
         </svg>
       </a>
+
     </div>
     <div id="gumbit">
       <img src="{{ 'gumbit-mint.png' | asset_url }}"/>
     </div>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      
       <!-- Section Links -->
       <div class="section-links">
         <ul class="nav navbar-nav mr-auto mt-2 mt-md-0 site-nav">
@@ -152,6 +202,7 @@
           {% endfor %}
           <!-- End Section Links -->
 
+          <!-- mobile search -->
         <li class="mobile-search-bar hidden-sm-up">
           <!-- Mobile Search Bar -->
           <form class="p-2 form-inline my-2 my-lg-0 search-form" action="/search" method="get" role="search">
@@ -177,7 +228,7 @@
         
         <li>
           <!-- Mobile Newsletter Signup -->
-          <div class="mobile-newsletter-signup hidden-sm-up">
+           <div class="mobile-newsletter-signup hidden-sm-up">
             <form class="mr-auto nav-item d-flex form-inline justify-content-center" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
               <div class="form-group">
                 <div class="nav-item input-group input-group">
@@ -205,8 +256,10 @@
         </ul>
       </div>
       
-      <div class="misc-links d-flex flex-row-reverse">
+      {%comment%} <div class="misc-links d-flex flex-row-reverse"> {%endcomment%}
+      <div class="misc-links">
        
+        {%comment %}
         <!-- Desktop Cart Icon -->
         <div class="desktop-cart">
           <a class="cart p-2 cart-link" href="/cart">
@@ -219,11 +272,12 @@
           </a>
         </div>
         <!-- End Desktop Cart Icon -->
-        
+        {%endcomment%}
+
         <!-- Search Bar -->
         <div class="search-bar hidden-xs-down">
           <form class="p-2 form-inline my-2 my-lg-0 search-form" action="/search" method="get" role="search">
-            <span>
+            <span class="datspan">
               <label for="Search" class="label-hidden">
                 {{ 'general.search.placeholder' | t }}
               </label>
