@@ -178,6 +178,7 @@
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+{% comment %} 
   <!--THIS IS THE TOP BAR FOR NEWSLETTER! -->
   <div id="newsletterBanner" class="nav d-flex justify-content-center newsletter-banner">
     <form class="mr-auto nav-item d-flex form-inline justify-content-center" action="https://flyelyfe.us12.list-manage.com/subscribe/post?u=5340545d4a4c662056d0a4703&amp;id=3230a2b376" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
@@ -195,13 +196,14 @@
             </a>
           </div>
         </div>
-    </form>
-
-    <div class="p-3">
-      <a href="javascript:closeBanner();" id="closeBanner"><i class="btb bt-times"></i></a>
+      </form>
+      
+      <div class="p-3">
+        <a href="javascript:closeBanner();" id="closeBanner"><i class="btb bt-times"></i></a>
+      </div>
     </div>
-  </div>
-
+    {% endcomment %}
+    
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {% section 'header' %}
