@@ -1,0 +1,40 @@
+.custom-banner {
+    background-color: $color-secondary;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10vh;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5vh;
+
+    & > h3 {
+        font-size: 5rem;
+    }
+
+    & > p {
+        font-size: 2rem;
+    }
+}
+
+.banner-btn:link,
+.banner-btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: .3rem .5rem;
+    display: inline-block;
+    background-color: #111;
+    color: #fff;
+    border: 1px solid white;
+}
+
+.banner-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.banner-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}

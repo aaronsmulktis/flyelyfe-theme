@@ -1,0 +1,34 @@
+<div class="custom-banner">
+    <h3>{{section.settings.heading}}</h3>
+    <p>{{section.settings.description}}</p>
+    <a class="banner-btn font3" href={{section.settings.url}}>shop now</a>
+</div>
+
+{% schema %}
+    {
+        "name": "Custom Banner",
+        "settings": [
+            {
+                "type": "text",
+                "label": "Your headline for your banner",
+                "id": "heading"
+            },
+            {
+                "type": "text",
+                "label": "Your description for your banner",
+                "id": "description"
+            },
+            {
+                "type": "text",
+                "label": "the URL for your SHOP NOW button",
+                "id": "url"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Custom Banner",
+                "category": "Banner"
+            }
+        ]
+    }
+{% endschema %}

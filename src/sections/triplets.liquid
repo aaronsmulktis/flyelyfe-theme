@@ -1,0 +1,76 @@
+<style>
+    .image-triplets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-bottom: 2em;
+    }
+    .triplet {
+        width: 30%;
+    }
+    .trip-img {
+        display: inline-block;
+    }
+</style>
+<div class="image-triplets">
+    <div class="triplet">
+        <img src={{section.settings.img1 | img_url: "master"}} class="trip-img"/>
+        <h3>{{section.settings.description1}}</h3>
+      
+    </div>
+    <div class="triplet">
+        <img src={{section.settings.img2 | img_url: "master"}} class="trip-img"/>
+        <h3>{{section.settings.description2}}</h3>
+       
+    </div>
+    <div class="triplet">
+        <img src={{section.settings.img3 | img_url: "master"}} class="trip-img"/>
+        <h3>{{section.settings.description3}}</h3>
+    </div>
+
+</div>
+
+{% schema %}
+    {
+        "name": "Triplets",
+        "settings": [
+            {
+                "type": "image_picker",
+                "label": "First image",
+                "id": "img1"
+            },
+            {
+                "type": "text",
+                "label": "1st image caption",
+                "id": "description1"
+            },
+            {
+                "type": "image_picker",
+                "label": "Middle Image",
+                "id": "img2"
+            },
+            {
+                "type": "text",
+                "label": "2nd image caption",
+                "id": "description2"
+            },
+            {
+                "type": "image_picker",
+                "label": "Third Image",
+                "id": "img3"
+            },
+            {
+                "type": "text",
+                "label": "3rd image caption",
+                "id": "description3"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Triplets",
+                "category": "Banner"
+            }
+        ]
+
+    }
+{% endschema %}
