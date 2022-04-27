@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "@shopify/slate-tools": "0.13.0",
-    "grunt": "^1.0.1"
+    "grunt": "^1.5.2"
   },
   "dependencies": {
     "natives": "^1.1.6",
